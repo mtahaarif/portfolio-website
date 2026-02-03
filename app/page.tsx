@@ -283,8 +283,8 @@ export default function Home() {
                     <p className="text-white/60 text-sm">Certifications</p>
                   </div>
                   <div className="glass-card rounded-2xl p-6 text-center">
-                    <h3 className="text-4xl font-bold gradient-text">1</h3>
-                    <p className="text-white/60 text-sm">Internship</p>
+                    <h3 className="text-4xl font-bold gradient-text">2</h3>
+                    <p className="text-white/60 text-sm">Work Experience</p>
                   </div>
                 </div>
                 <div className="mt-6 glass-card rounded-2xl p-6">
@@ -879,32 +879,39 @@ export default function Home() {
 // Data
 const skillCategories = [
   {
-    title: "Generative AI & NLP",
-    icon: Brain,
-    iconBg: "bg-blue-600/20",
-    iconColor: "text-blue-400",
-    skills: ["LLaMA-3", "RAG", "LoRA", "LangChain", "Transformers", "BERT", "Hugging Face", "Prompt Engineering"]
+    title: "Full-Stack Web Development",
+    icon: Code2,
+    iconBg: "bg-purple-600/20",
+    iconColor: "text-purple-400",
+    skills: ["Next.js 14 App Router", "React", "TypeScript", "Node.js", "Tailwind CSS", "Server Components", "REST APIs", "Vercel"]
   },
   {
-    title: "Computer Vision",
-    icon: Cpu,
-    iconBg: "bg-blue-400/20",
-    iconColor: "text-blue-300",
-    skills: ["OpenCV", "YOLO", "3D-CNNs", "Optical Flow", "MediaPipe", "Face Anti-Spoofing", "Fourier Transforms"]
-  },
-  {
-    title: "Deep Learning",
-    icon: Brain,
-    iconBg: "bg-blue-500/20",
-    iconColor: "text-blue-400",
-    skills: ["TensorFlow", "PyTorch", "Keras", "CNN", "RNN", "LSTM", "BiLSTM", "Attention"]
-  },
-  {
-    title: "Programming",
+    title: "Backend & Database",
     icon: Code2,
     iconBg: "bg-green-500/20",
     iconColor: "text-green-400",
-    skills: ["Python", "C++", "Java", "Verilog", "MATLAB", "Assembly", "SQL"]
+    skills: ["MySQL", "Relational Database Design", "Serverless Functions", "JWT Authentication", "API Development", "SQL Optimization", "Middleware"]
+  },
+  {
+    title: "AI & Machine Learning",
+    icon: Brain,
+    iconBg: "bg-blue-600/20",
+    iconColor: "text-blue-400",
+    skills: ["TensorFlow", "PyTorch", "LLaMA-3", "RAG", "LangChain", "Transformers", "BERT", "Prompt Engineering"]
+  },
+  {
+    title: "Computer Vision & Deep Learning",
+    icon: Cpu,
+    iconBg: "bg-blue-400/20",
+    iconColor: "text-blue-300",
+    skills: ["OpenCV", "YOLO", "CNN", "RNN", "LSTM", "Optical Flow", "MediaPipe", "Image Processing"]
+  },
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    iconBg: "bg-indigo-500/20",
+    iconColor: "text-indigo-400",
+    skills: ["Python", "TypeScript", "JavaScript", "C++", "Java", "SQL", "Verilog", "MATLAB"]
   },
   {
     title: "Hardware & IoT",
@@ -914,15 +921,22 @@ const skillCategories = [
     skills: ["FPGA", "ESP32", "Raspberry Pi", "Arduino", "Verilog HDL", "Digital Logic", "Sensors"]
   },
   {
-    title: "Tools & Systems",
+    title: "Tools & DevOps",
     icon: Wrench,
     iconBg: "bg-cyan-500/20",
     iconColor: "text-cyan-400",
-    skills: ["Docker", "Git", "Linux", "Flask", "Qt", "Vivado", "Packet Tracer"]
+    skills: ["Docker", "Git", "Linux", "Vercel", "Vercel Blob", "CI/CD Pipelines", "Flask", "Qt"]
   }
 ];
 
 const leadershipRoles = [
+  {
+    type: "Professional",
+    title: "Freelance Full-Stack Engineer",
+    organization: "Self-Employed",
+    period: "Jan 2026 – Present",
+    description: "Specializing in modernizing legacy web systems for small businesses. Recently architected and deployed a custom Headless CMS and patient engagement platform for a dental practice, migrating from a static legacy codebase to a dynamic Next.js architecture. Focus areas: relational database design, serverless authentication, and building intuitive admin interfaces for non-technical users."
+  },
   {
     type: "Leadership",
     title: "Lead of Human Resources (HR)",
@@ -999,6 +1013,13 @@ const projectCategories = [
     title: "Software Engineering",
     icon: Code2,
     projects: [
+      {
+        tag: "Full Stack Development",
+        title: "Full-Stack Dental Practice Platform & Custom Headless CMS",
+        description: "Architected a bespoke CMS solving the challenge of managing dynamic content on a serverless platform with legacy database constraints. Built custom Admin Dashboard with drag-and-drop interface, optimistic UI updates, and real-time MySQL synchronization. Engineered hybrid storage system combining Vercel Blob for uploads with Git-based CDN assets. Reduced content update time by 90% (from 30+ min manual edits to <2 min). Achieved <100kB initial load with SSR, AVIF/WebP optimization, and aggressive caching.",
+        tech: ["Next.js 14", "TypeScript", "MySQL", "Tailwind CSS", "Vercel Blob", "JWT Auth"],
+        github: "https://github.com/mtahaarif/hainescitydental"
+      },
       {
         tag: "Systems",
         title: "OS Scheduler Simulator",
