@@ -166,7 +166,7 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="text-blue-400 font-medium mb-4"
               >
-                 Welcome to my portfolio
+                Computer Engineering | AI & Machine Learning
               </motion.p>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
                 Muhammad
@@ -176,9 +176,9 @@ export default function Home() {
                 AI Engineer & Computer Vision Specialist
               </h2>
               <p className="text-white/60 text-lg mb-8 max-w-xl">
-                Final-year Computer Engineering student with expertise in Generative AI, 
-                Computer Vision, and Embedded Systems. Building intelligent systems from 
-                neural networks to custom FPGA processors.
+                Final-year Computer Engineering student at NUST with expertise in 
+                Deep Learning, Computer Vision (OpenCV, YOLO), and Full-Stack Development. 
+                Building intelligent AI systems from neural networks to production-grade web applications.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">

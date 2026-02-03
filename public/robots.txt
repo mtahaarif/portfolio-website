@@ -1,0 +1,22 @@
+# Robots.txt for Muhammad Taha Portfolio
+# https://taha-portfolio-website-blond.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://taha-portfolio-website-blond.vercel.app/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block API routes from being indexed
+User-agent: *
+Disallow: /api/
