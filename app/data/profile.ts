@@ -10,9 +10,14 @@ export const profile = {
   github: "https://github.com/mtahaarif",
   website: "https://taha-portfolio-website-blond.vercel.app",
   
-  bio: `Final-year Computer Engineering student with expertise in Generative AI, 
-        Computer Vision, and Embedded Systems. Building intelligent systems from 
-        neural networks to custom FPGA processors.`,
+  bio: `Computer Engineering student specializing in AI & Machine Learning, Computer Vision, 
+        and Full-Stack Development. Expertise in TensorFlow, PyTorch, OpenCV, and YOLO for deep learning 
+        and computer vision applications (speech emotion recognition, medical imaging, autonomous vision systems). 
+        Full-stack engineer proficient in Next.js 14, TypeScript, MySQL, and serverless architectures. 
+        Strong backend capabilities: RESTful APIs, JWT authentication, database optimization, and cloud deployment 
+        on Vercel with modern DevOps practices. Hardware specialist with FPGA development (Verilog, Xilinx), 
+        IoT systems (ESP32, Arduino, LoRa), digital logic design, and embedded systems architecture. 
+        Proven track record building intelligent, scalable systems from neural networks to custom processors.`,
   
   education: {
     degree: "B.E. Computer Engineering",

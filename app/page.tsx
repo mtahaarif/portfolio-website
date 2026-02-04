@@ -183,9 +183,16 @@ export default function Home() {
                 AI Engineer & Computer Vision Specialist
               </h2>
               <p className="text-white/60 text-lg mb-8 max-w-xl">
-                Final-year Computer Engineering student at NUST with expertise in 
-                Deep Learning, Computer Vision (OpenCV, YOLO), and Full-Stack Development. 
-                Building intelligent AI systems from neural networks to production-grade web applications.
+                <strong className="text-white">AI & Machine Learning Engineer</strong> with expertise in deep learning frameworks (TensorFlow, PyTorch), 
+                computer vision (OpenCV, YOLO, CNN), and signal processing (Librosa, MFCCs). 
+                <br /><br />
+                <strong className="text-white">Full-Stack Developer</strong> building production systems with Next.js 14, TypeScript, MySQL, 
+                REST APIs, JWT auth, and serverless deployment on Vercel. 
+                <br /><br />
+                <strong className="text-white">Hardware Engineer</strong> proficient in FPGA design (Verilog), IoT systems (ESP32, Arduino), 
+                digital logic, and embedded processors. 
+                <br /><br />
+                Final-year Computer Engineering student at NUST delivering end-to-end intelligent systems.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
