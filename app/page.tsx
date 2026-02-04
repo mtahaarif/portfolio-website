@@ -1114,30 +1114,70 @@ const projectCategories = [
   }
 ];
 
-const certifications = [
-  { 
-    title: "Deep Learning Specialization", 
-    issuer: "DeepLearning.AI",
-    link: "https://www.coursera.org/account/accomplishments/specialization/108CJVFYUFG4"
+const skillCategories = [
+  {
+    title: "AI Engineering Skills",
+    icon: Brain,
+    iconBg: "bg-blue-600/20",
+    iconColor: "text-blue-400",
+    skills: [
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "YOLO",
+      "CNN",
+      "RNN",
+      "LSTM",
+      "BiLSTM",
+      "Transformers",
+      "BERT",
+      "RAG",
+      "LangChain",
+      "LLaMA-3",
+      "Image Processing",
+      "Librosa",
+      "MFCCs"
+    ]
   },
-  { 
-    title: "Machine Learning Specialization", 
-    issuer: "Stanford Online",
-    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CCNSYYU42C28"
+  {
+    title: "Software Engineering Skills",
+    icon: Code2,
+    iconBg: "bg-purple-600/20",
+    iconColor: "text-purple-400",
+    skills: [
+      "Next.js 14 App Router",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "MySQL",
+      "Relational Database Design",
+      "SQL",
+      "JWT Authentication",
+      "Serverless Functions",
+      "Vercel",
+      "Vercel Blob",
+      "CI/CD Pipelines",
+      "Git",
+      "Docker"
+    ]
   },
-  { 
-    title: "CS50: Python Programming", 
-    issuer: "Harvard University",
-    link: "https://certificates.cs50.io/a31f82a1-78d3-417d-9b38-7b58af74cd4c.pdf?size=letter"
-  },
-  { 
-    title: "Introduction to Front-End Development", 
-    issuer: "Meta / Coursera",
-    link: "https://www.coursera.org/account/accomplishments/verify/5W3GG5G4JVNY"
-  },
-  { 
-    title: "AI for Everyone", 
-    issuer: "DeepLearning.AI",
-    link: "https://www.coursera.org/account/accomplishments/verify/DQRNLTNU8F3D"
+  {
+    title: "Hardware Skills",
+    icon: Cpu,
+    iconBg: "bg-orange-500/20",
+    iconColor: "text-orange-400",
+    skills: [
+      "FPGA",
+      "Verilog",
+      "Verilog HDL",
+      "Digital Logic",
+      "ESP32",
+      "Arduino",
+      "Raspberry Pi",
+      "VGA",
+      "Sensors"
+    ]
   }
 ];
