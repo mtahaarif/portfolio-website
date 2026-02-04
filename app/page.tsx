@@ -11,10 +11,21 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [particleStyles, setParticleStyles] = useState<
+    { left: string; animationDelay: string; animationDuration: string }[]
+  >([]);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   useEffect(() => {
+    setParticleStyles(
+      Array.from({ length: 20 }, () => ({
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 15}s`,
+        animationDuration: `${15 + Math.random() * 10}s`,
+      }))
+    );
+
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certifications', 'resume', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -41,15 +52,11 @@ export default function Home() {
     <div className="liquid-bg min-h-screen relative">
       {/* Animated Particles */}
       <div className="particles">
-        {[...Array(20)].map((_, i) => (
+        {particleStyles.map((style, i) => (
           <div
             key={i}
             className="particle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 15}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
-            }}
+            style={style}
           />
         ))}
       </div>

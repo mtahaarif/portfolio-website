@@ -59,11 +59,6 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
-          },
-          // Performance: Enable GZIP/Brotli
-          {
-            key: 'Content-Encoding',
-            value: 'gzip'
           }
         ],
       },
