@@ -173,26 +173,21 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="text-blue-400 font-medium mb-4"
               >
-                Computer Engineering | AI & Machine Learning
+                AI/ML Engineer • Computer Vision • Embedded Systems
               </motion.p>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
                 Muhammad
                 <span className="gradient-text"> Taha</span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-white/80 mb-6">
-                AI Engineer & Computer Vision Specialist
+                AI/ML Engineer Building Scalable Software & Embedded Solutions
               </h2>
               <p className="text-white/60 text-lg mb-8 max-w-xl">
-                <strong className="text-white">AI & Machine Learning Engineer</strong> with expertise in deep learning frameworks (TensorFlow, PyTorch), 
-                computer vision (OpenCV, YOLO, CNN), and signal processing (Librosa, MFCCs). 
-                <br /><br />
-                <strong className="text-white">Full-Stack Developer</strong> building production systems with Next.js 14, TypeScript, MySQL, 
-                REST APIs, JWT auth, and serverless deployment on Vercel. 
-                <br /><br />
-                <strong className="text-white">Hardware Engineer</strong> proficient in FPGA design (Verilog), IoT systems (ESP32, Arduino), 
-                digital logic, and embedded processors. 
-                <br /><br />
-                Final-year Computer Engineering student at NUST delivering end-to-end intelligent systems.
+                Specializing in <strong className="text-white">Multimodal AI Systems</strong>, 
+                <strong className="text-white"> Medical Imaging</strong>, and 
+                <strong className="text-white"> Speech Emotion Recognition</strong> using 
+                CNNs, Transformers, and TensorFlow. Delivering production-ready solutions from 
+                autonomous vision pipelines to full-stack web deployments and FPGA-based hardware designs.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -351,20 +346,22 @@ export default function Home() {
             >
               <h3 className="text-2xl font-bold text-white mb-6">Professional Summary</h3>
               <p className="text-white/70 leading-relaxed mb-6">
-                Final-year Computer Engineering student with a comprehensive portfolio bridging 
-                <span className="text-blue-400 font-medium"> Generative AI</span>, 
-                <span className="text-blue-300 font-medium"> Computer Vision</span>, 
-                <span className="text-blue-400 font-medium"> System Software</span>, and 
-                <span className="text-green-400 font-medium"> Embedded Hardware</span>.
+                AI/ML Engineer with a rigorous academic foundation in 
+                <span className="text-blue-400 font-medium"> Computer Engineering at NUST</span>, 
+                where I architected multimodal deep learning systems including 
+                <span className="text-blue-300 font-medium"> SERENITY</span>—a mental health AI 
+                leveraging CNNs, Transformers, and Speech Emotion Recognition.
               </p>
               <p className="text-white/70 leading-relaxed mb-6">
-                Demonstrated expertise in fine-tuning Large Language Models (LLMs) with RAG, 
-                designing hybrid deep neural networks for signal processing, and engineering 
-                processor-less hardware solutions on FPGA.
+                Beyond research, I deliver real-world impact: migrated and deployed a 
+                <span className="text-green-400 font-medium"> production healthcare website</span> 
+                for Haines City Dental, handling database management, PHP troubleshooting, 
+                and cloud hosting on HostGator—demonstrating full-stack delivery capability.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Proven track record of delivering end-to-end complex systems, from custom 
-                digital logic design to deploying real-time AI inference pipelines.
+                My engineering expertise extends to <span className="text-orange-400 font-medium">embedded hardware</span>: 
+                designing Fixed-Point Filters in Verilog, validating designs with MATLAB simulations, 
+                and applying control theory to electromechanical systems.
               </p>
             </motion.div>
 
@@ -893,63 +890,56 @@ export default function Home() {
 // Data
 const skillCategories = [
   {
-    title: "Full-Stack Web Development",
-    icon: Code2,
-    iconBg: "bg-purple-600/20",
-    iconColor: "text-purple-400",
-    skills: ["Next.js 14 App Router", "React", "TypeScript", "Node.js", "Tailwind CSS", "Server Components", "REST APIs", "Vercel"]
-  },
-  {
-    title: "Backend & Database",
-    icon: Code2,
-    iconBg: "bg-green-500/20",
-    iconColor: "text-green-400",
-    skills: ["MySQL", "Relational Database Design", "Serverless Functions", "JWT Authentication", "API Development", "SQL Optimization", "Middleware"]
-  },
-  {
     title: "AI & Machine Learning",
     icon: Brain,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
-    skills: ["TensorFlow", "PyTorch", "LLaMA-3", "RAG", "LangChain", "Transformers", "BERT", "Prompt Engineering"]
+    skills: ["TensorFlow", "CNNs", "Transformers", "Multimodal AI", "Speech Emotion Recognition", "Librosa", "MFCCs", "Deep Learning"]
   },
   {
-    title: "Computer Vision & Deep Learning",
+    title: "Computer Vision & Medical AI",
     icon: Cpu,
     iconBg: "bg-blue-400/20",
     iconColor: "text-blue-300",
-    skills: ["OpenCV", "YOLO", "CNN", "RNN", "LSTM", "Optical Flow", "MediaPipe", "Image Processing"]
+    skills: ["OpenCV", "Image Classification", "Medical Imaging", "Histopathology", "Fourier Transforms", "Edge Detection", "Real-time Processing"]
   },
   {
-    title: "Programming Languages",
+    title: "Software Engineering",
     icon: Code2,
-    iconBg: "bg-indigo-500/20",
-    iconColor: "text-indigo-400",
-    skills: ["Python", "TypeScript", "JavaScript", "C++", "Java", "SQL", "Verilog", "MATLAB"]
+    iconBg: "bg-purple-600/20",
+    iconColor: "text-purple-400",
+    skills: ["Full-Stack Development", "PHP", "MySQL", "WordPress", "Next.js", "TypeScript", "Database Management", "REST APIs"]
   },
   {
-    title: "Hardware & IoT",
+    title: "Deployment & DevOps",
+    icon: Code2,
+    iconBg: "bg-green-500/20",
+    iconColor: "text-green-400",
+    skills: ["Vercel", "HostGator", "CI/CD", "Cloud Hosting", "SEO Optimization", "Git", "Flask API"]
+  },
+  {
+    title: "Embedded & Hardware",
     icon: Cpu,
     iconBg: "bg-orange-500/20",
     iconColor: "text-orange-400",
-    skills: ["FPGA", "ESP32", "Raspberry Pi", "Arduino", "Verilog HDL", "Digital Logic", "Sensors"]
+    skills: ["Verilog HDL", "FPGA Design", "Fixed-Point Arithmetic", "Digital Filters", "Hardware Synthesis"]
   },
   {
-    title: "Tools & DevOps",
+    title: "Control & Simulation",
     icon: Wrench,
     iconBg: "bg-cyan-500/20",
     iconColor: "text-cyan-400",
-    skills: ["Docker", "Git", "Linux", "Vercel", "Vercel Blob", "CI/CD Pipelines", "Flask", "Qt"]
+    skills: ["MATLAB", "Simulink", "Control Theory", "System Modeling", "Fixed-Point Simulation"]
   }
 ];
 
 const leadershipRoles = [
   {
     type: "Professional",
-    title: "Freelance Full-Stack Engineer",
+    title: "Freelance Software Engineer",
     organization: "Self-Employed",
     period: "Jan 2026 – Present",
-    description: "Specializing in modernizing legacy web systems for small businesses. Recently architected and deployed a custom Headless CMS and patient engagement platform for a dental practice, migrating from a static legacy codebase to a dynamic Next.js architecture. Focus areas: relational database design, serverless authentication, and building intuitive admin interfaces for non-technical users."
+    description: "Delivering end-to-end web solutions for healthcare clients. Led full website migration for Haines City Dental—managing MySQL databases, resolving PHP backend issues, and configuring HostGator cloud hosting. Reduced client content management overhead by 90%."
   },
   {
     type: "Leadership",

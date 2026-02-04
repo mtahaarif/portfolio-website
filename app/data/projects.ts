@@ -6,135 +6,79 @@ export const projectCategories = [
     icon: Brain,
     projects: [
       {
-        tag: "Deep Learning",
-        title: "Speech Emotion Recognition",
-        description: "Hybrid CNN-BiLSTM-Attention network achieving 78.41% accuracy on 50K+ audio samples from 9 datasets.",
-        tech: ["CNN", "BiLSTM", "Librosa", "RAVDESS"],
+        tag: "Multimodal AI",
+        title: "SERENITY: Multimodal AI Mental Care System",
+        description: "Engineered an end-to-end multimodal mental health assessment system integrating CNN-based facial expression analysis, Transformer architectures for text sentiment, and Speech Emotion Recognition using Librosa and TensorFlow. Achieved real-time inference across three modalities.",
+        tech: ["TensorFlow", "CNNs", "Transformers", "Librosa", "Speech Emotion Recognition"],
         github: "https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-"
       },
       {
         tag: "Medical AI",
-        title: "Histopathological Cancer Classification",
-        description: "CNN-based histopathological image classifier achieving 98.6% validation accuracy for cancer detection.",
-        tech: ["CNN", "TensorFlow", "Image Processing", "Medical Imaging"],
+        title: "Lung & Colon Cancer Histopathological Classification",
+        description: "Developed a CNN-based deep learning classifier for histopathological image analysis, achieving 98.6% validation accuracy on medical imaging datasets. Implemented preprocessing pipelines for microscopy data normalization.",
+        tech: ["TensorFlow", "CNN", "Medical Imaging", "Image Classification"],
         github: "https://github.com/mtahaarif/Histopathological-Cancer-Classification"
       },
       {
         tag: "Computer Vision",
-        title: "Self-Driving Vision System",
-        description: "Real-time lane detection and obstacle recognition for autonomous navigation using computer vision.",
+        title: "Real-Time Image Analysis for Self-Driving Capabilities",
+        description: "Built a computer vision pipeline for autonomous navigation featuring real-time lane detection via Hough transforms, edge detection algorithms, and obstacle recognition. Optimized for low-latency inference on resource-constrained systems.",
         tech: ["OpenCV", "Hough Transform", "Edge Detection", "Real-time Processing"],
         github: "https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities"
       },
       {
-        tag: "Image Processing",
-        title: "WBC Analysis & Classification",
-        description: "Pipeline using Fourier Transforms and LBP for microscopic white blood cell classification.",
-        tech: ["Fourier", "LBP", "Hough Transform", "Microscopy"],
+        tag: "Medical Imaging",
+        title: "White Blood Cell Analysis & Classification",
+        description: "Implemented an image processing pipeline utilizing Fourier Transforms, Local Binary Patterns (LBP), and morphological operations for microscopic WBC classification in clinical diagnostic workflows.",
+        tech: ["Fourier Transforms", "LBP", "Image Processing", "Medical Diagnostics"],
         github: "https://github.com/mtahaarif/WBC-Analysis-and-Classification"
       },
       {
         tag: "Signal Processing",
         title: "Audio Classification System",
-        description: "MLP-based classifier (94% accuracy) for speech, music, and noise deployed via Flask API.",
-        tech: ["Librosa", "MFCCs", "Flask", "MLP"],
+        description: "Designed an MLP-based audio classifier achieving 94% accuracy for speech, music, and noise classification. Extracted MFCC features using Librosa and deployed inference via Flask REST API.",
+        tech: ["Librosa", "MFCCs", "Flask", "MLP", "Audio Processing"],
         github: "https://github.com/mtahaarif/Audio-Classification-System"
       }
     ]
   },
   {
-    title: "Full-Stack Development",
+    title: "Software Engineering",
     icon: Code2,
     projects: [
       {
-        tag: "Full Stack Development",
-        title: "Full-Stack Dental Practice Platform & Custom Headless CMS",
-        description: "Architected a bespoke CMS solving the challenge of managing dynamic content on a serverless platform with legacy database constraints. Built custom Admin Dashboard with drag-and-drop interface, optimistic UI updates, and real-time MySQL synchronization. Engineered hybrid storage system combining Vercel Blob for uploads with Git-based CDN assets. Reduced content update time by 90% (from 30+ min manual edits to <2 min). Achieved <100kB initial load with SSR, AVIF/WebP optimization, and aggressive caching.",
-        tech: ["Next.js 14", "TypeScript", "MySQL", "Tailwind CSS", "Vercel Blob", "JWT Auth"],
+        tag: "Client Delivery",
+        title: "Haines City Dental: Full-Stack Healthcare Platform",
+        description: "Delivered end-to-end website migration and deployment for a healthcare client. Managed MySQL database operations, resolved PHP backend issues, configured HostGator hosting, and integrated WordPress CMS. Reduced client content update time by 90% through custom admin workflows.",
+        tech: ["PHP", "MySQL", "WordPress", "HostGator", "Database Management"],
         github: "https://github.com/mtahaarif/hainescitydental"
       },
       {
-        tag: "Systems Programming",
-        title: "OS Scheduler Simulator",
-        description: "Full-stack Java application simulating CPU and Disk scheduling algorithms with dynamic Gantt Charts.",
-        tech: ["Java", "Swing", "Multithreading", "Algorithms"],
-        github: "https://github.com/mtahaarif/Comprehensive-OS-Scheduler-Disk-Simulator"
-      },
-      {
-        tag: "Game Development",
-        title: "Gameboy Multi-Game Launcher",
-        description: "C++ game launcher with SFML graphics, featuring Tetris and Flappy Bird with custom physics engine.",
-        tech: ["C++", "SFML", "Game Physics", "Graphics"],
-        github: "https://github.com/mtahaarif/-Gameboy-Multi-Game-Launcher"
-      },
-      {
-        tag: "Data Structures",
-        title: "Search Engine Application",
-        description: "High-performance desktop file search using Trie data structure with O(L) complexity and Qt GUI.",
-        tech: ["C++", "Qt", "Trie", "Algorithms"],
-        github: "https://github.com/mtahaarif/Search-Engine-Desktop-Application"
-      },
-      {
-        tag: "Object-Oriented Design",
-        title: "Airport Traffic Simulation",
-        description: "Complex ground traffic modeling using Java OOP principles with interactive Swing GUI.",
-        tech: ["Java", "Swing", "OOP", "Simulation"],
-        github: "https://github.com/mtahaarif/Object-Oriented-Airport-Traffic-Simulation"
-      },
-      {
-        tag: "Networking",
-        title: "IPv6 WAN Design",
-        description: "Scalable IPv6 WAN architecture with Router-on-a-Stick, OSPFv3, and VLAN segmentation.",
-        tech: ["Cisco", "OSPFv3", "VLANs", "Network Design"],
-        github: "https://github.com/mtahaarif/IPv6-WAN-Design"
-      },
-      {
-        tag: "Database Design",
-        title: "Industrial Database Management System",
-        description: "Normalized SQL database with EER diagram and Python GUI for comprehensive CRUD operations.",
-        tech: ["SQL", "Python", "EER Modeling", "Database Design"],
-        github: "https://github.com/mtahaarif/Industrial-Database-Management-System"
+        tag: "Portfolio",
+        title: "Personal Portfolio Website",
+        description: "Architected and deployed a performance-optimized portfolio using Next.js 14 App Router with SSR, achieving <100kB initial load. Implemented SEO best practices, structured data (JSON-LD), and CI/CD deployment on Vercel.",
+        tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Vercel", "SEO"],
+        github: "https://github.com/mtahaarif/portfolio-website1"
       }
     ]
   },
   {
-    title: "Hardware & FPGA",
+    title: "Embedded Systems & Hardware",
     icon: Cpu,
     projects: [
       {
-        tag: "FPGA Development",
-        title: "Snake Game with Hardware AI",
-        description: "Processor-less game engine on Xilinx FPGA with VGA output and Manhattan distance-based AI opponent.",
-        tech: ["Verilog", "FPGA", "VGA", "Digital Design"],
-        github: "https://github.com/mtahaarif/FPGA-Implementation-of-Advanced-Snake-Game-with-AI"
-      },
-      {
-        tag: "Computer Architecture",
-        title: "Custom 16-bit Processor",
-        description: "Harvard-Architecture processor with custom ISA, Control Unit, ALU, and complete Datapath.",
-        tech: ["Verilog", "ISA Design", "Digital Design", "Computer Architecture"],
+        tag: "FPGA/Verilog",
+        title: "Fixed-Point Digital Filter Design",
+        description: "Designed and implemented a Fixed-Point FIR Filter in Verilog HDL for FPGA deployment. Validated filter coefficients and frequency response using MATLAB Fixed-Point simulations before hardware synthesis.",
+        tech: ["Verilog", "FPGA", "MATLAB", "Fixed-Point Arithmetic", "Digital Filters"],
         github: "https://github.com/mtahaarif/Custom-16-Bit-Processor"
       },
       {
-        tag: "Digital Logic",
-        title: "Smart Parking Fare System",
-        description: "Application-specific controller with custom ALU, Ripple Counters, and fare calculation logic.",
-        tech: ["Digital Logic", "ALU", "Counters", "ASIC"],
+        tag: "Control Systems",
+        title: "Electromechanical System Modeling",
+        description: "Applied linear control theory to model and simulate electromechanical systems. Designed controllers using MATLAB/Simulink with stability analysis via Bode plots and root locus methods.",
+        tech: ["MATLAB", "Simulink", "Control Theory", "System Modeling"],
         github: "https://github.com/mtahaarif/Smart-Car-Parking-Fare-Generator"
-      },
-      {
-        tag: "IoT & Robotics",
-        title: "Autonomous Robo Cop",
-        description: "Security surveillance vehicle with ESP32, PIR motion sensors, and automated fire extinguishing.",
-        tech: ["ESP32", "PIR", "IR Sensors", "Robotics"],
-        github: "https://github.com/mtahaarif/Autonomous-Robo-Cop"
-      },
-      {
-        tag: "IoT & Telemetry",
-        title: "Weather Detection Rover",
-        description: "Remote-controlled rover with LoRa WAN for long-range environmental telemetry transmission.",
-        tech: ["ESP32", "Arduino", "LoRa", "Telemetry"],
-        github: "https://github.com/mtahaarif/Remote-Weather-Detection-IoT-Car"
       }
     ]
   }

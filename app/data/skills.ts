@@ -1,53 +1,52 @@
 import { Brain, Code2, Cpu, Wrench } from 'lucide-react';
 
+// Skill Categories - Strict Context (Documented Skills Only)
 export const skillCategories = [
+  // Tier 1: AI Engineering (Primary)
   {
     title: "AI & Machine Learning",
     icon: Brain,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
-    skills: ["TensorFlow", "PyTorch", "LLaMA-3", "RAG", "LangChain", "Transformers", "BERT", "Prompt Engineering", "Hugging Face", "Keras"]
+    skills: ["TensorFlow", "Keras", "CNNs", "Transformers", "Multimodal AI", "Speech Emotion Recognition", "Librosa", "Feature Extraction"]
   },
   {
-    title: "Computer Vision & Deep Learning",
+    title: "Computer Vision & Medical AI",
     icon: Cpu,
     iconBg: "bg-blue-400/20",
     iconColor: "text-blue-300",
-    skills: ["OpenCV", "YOLO", "CNN", "RNN", "LSTM", "BiLSTM", "Optical Flow", "MediaPipe", "Image Processing", "Face Detection"]
+    skills: ["Image Classification", "Medical Imaging", "Histopathology", "Self-Driving Vision", "WBC Analysis", "Cancer Classification", "Data Augmentation"]
   },
+  
+  // Tier 2: Software Engineering
   {
-    title: "Full-Stack Web Development",
+    title: "Full-Stack Development",
     icon: Code2,
     iconBg: "bg-purple-600/20",
     iconColor: "text-purple-400",
-    skills: ["Next.js 14 App Router", "React", "TypeScript", "Node.js", "Tailwind CSS", "Server Components", "REST APIs", "Vercel"]
+    skills: ["PHP", "MySQL", "WordPress", "Next.js 14", "TypeScript", "React", "Tailwind CSS", "Flask"]
   },
   {
-    title: "Backend & Database",
-    icon: Code2,
+    title: "Deployment & DevOps",
+    icon: Wrench,
     iconBg: "bg-green-500/20",
     iconColor: "text-green-400",
-    skills: ["MySQL", "Relational Database Design", "Serverless Functions", "JWT Authentication", "API Development", "SQL Optimization", "Middleware"]
+    skills: ["Vercel", "HostGator", "cPanel", "Git", "GitHub", "CI/CD", "REST APIs", "Domain Management"]
   },
+  
+  // Tier 3: Embedded & Hardware
   {
-    title: "Programming Languages",
-    icon: Code2,
-    iconBg: "bg-indigo-500/20",
-    iconColor: "text-indigo-400",
-    skills: ["Python", "TypeScript", "JavaScript", "C++", "Java", "SQL", "Verilog", "MATLAB"]
-  },
-  {
-    title: "Hardware & Embedded Systems",
+    title: "Embedded & Hardware",
     icon: Cpu,
     iconBg: "bg-orange-500/20",
     iconColor: "text-orange-400",
-    skills: ["FPGA", "ESP32", "Raspberry Pi", "Arduino", "Verilog HDL", "Digital Logic Design", "Sensors", "IoT"]
+    skills: ["Verilog HDL", "FPGA", "Fixed-Point Filters", "IIR Filters", "Digital Logic Design", "Hardware Simulation"]
   },
   {
-    title: "Tools & DevOps",
+    title: "Control & Simulation",
     icon: Wrench,
     iconBg: "bg-cyan-500/20",
     iconColor: "text-cyan-400",
-    skills: ["Docker", "Git", "GitHub", "Linux", "Vercel", "CI/CD Pipelines", "Flask", "Qt", "VS Code"]
+    skills: ["MATLAB", "Simulink", "Control Systems", "PID Tuning", "Stability Analysis", "System Modeling"]
   }
 ];

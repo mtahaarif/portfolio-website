@@ -1,8 +1,8 @@
-// Profile data - Computer Engineering & AI Engineer & Computer Vision Specialist
+// Profile data - AI/ML Engineer | Computer Vision & Embedded AI Specialist
 export const profile = {
   name: "Muhammad Taha",
-  title: "Computer Engineering Student | AI Engineer & Computer Vision Specialist",
-  headline: "AI Engineer & Computer Vision Specialist",
+  title: "AI/ML Engineer | Computer Vision & Embedded AI Specialist",
+  headline: "AI/ML Engineer Building Scalable Software & Embedded Solutions",
   email: "ch.tahaarif2005@gmail.com",
   phone: "+92 316 5765670",
   location: "Islamabad, Pakistan",
@@ -10,14 +10,14 @@ export const profile = {
   github: "https://github.com/mtahaarif",
   website: "https://taha-portfolio-website-blond.vercel.app",
   
-  bio: `Computer Engineering student specializing in AI & Machine Learning, Computer Vision, 
-        and Full-Stack Development. Expertise in TensorFlow, PyTorch, OpenCV, and YOLO for deep learning 
-        and computer vision applications (speech emotion recognition, medical imaging, autonomous vision systems). 
-        Full-stack engineer proficient in Next.js 14, TypeScript, MySQL, and serverless architectures. 
-        Strong backend capabilities: RESTful APIs, JWT authentication, database optimization, and cloud deployment 
-        on Vercel with modern DevOps practices. Hardware specialist with FPGA development (Verilog, Xilinx), 
-        IoT systems (ESP32, Arduino, LoRa), digital logic design, and embedded systems architecture. 
-        Proven track record building intelligent, scalable systems from neural networks to custom processors.`,
+  bio: `AI/ML Engineer specializing in Multimodal AI Systems, Computer Vision, and Medical Imaging. 
+        Expert in TensorFlow, CNNs, Transformers, and Librosa for Speech Emotion Recognition and 
+        Histopathology Classification. Built SERENITY—a multimodal mental health AI system combining 
+        text, speech, and facial analysis. Full-stack delivery experience: developed and deployed a 
+        HIPAA-adjacent dental CMS for Haines City Dental using PHP, MySQL, WordPress, and HostGator. 
+        Hardware engineer with Verilog/FPGA expertise—designed fixed-point IIR filters validated in 
+        MATLAB. Control systems background including PID tuning and stability analysis. 
+        Industry-ready engineer bridging AI research with production deployment.`,
   
   education: {
     degree: "B.E. Computer Engineering",
@@ -34,43 +34,44 @@ export const profile = {
   }
 };
 
-// SEO Keywords for AI Engineer & Computer Vision Specialist
+// SEO Keywords - Strict Context (Documented Skills Only)
 export const seoKeywords = [
-  // Primary Keywords
-  "Computer Engineering",
+  // Tier 1: AI Engineering (Primary)
   "AI Engineer",
-  "Computer Vision Specialist",
   "Machine Learning Engineer",
+  "Computer Vision Specialist",
   "Deep Learning",
-  
-  // Technical Skills
   "TensorFlow",
-  "PyTorch",
-  "OpenCV",
-  "YOLO",
-  "CNN",
-  "Neural Networks",
-  "NLP",
-  "LLM",
-  "LangChain",
-  "RAG",
+  "CNNs",
+  "Transformer Architecture",
+  "Multimodal AI",
+  "Speech Emotion Recognition",
+  "Librosa",
+  "Medical Imaging AI",
+  "Histopathology Classification",
   
-  // Full-Stack
+  // Tier 2: Software Engineering
   "Full-Stack Developer",
-  "Next.js Developer",
+  "PHP Developer",
+  "MySQL",
+  "WordPress Developer",
+  "Next.js",
   "TypeScript",
-  "React",
-  "Node.js",
+  "Flask",
+  "Vercel Deployment",
+  "HostGator",
   
-  // Hardware
-  "FPGA",
-  "Embedded Systems",
-  "IoT",
-  "Verilog",
+  // Tier 3: Embedded & Hardware
+  "FPGA Developer",
+  "Verilog HDL",
+  "MATLAB",
+  "Fixed-Point Filter",
+  "Control Systems",
+  "Embedded AI",
   
   // Location & Education
   "NUST",
   "Pakistan",
-  "Computer Vision Engineer Pakistan",
-  "AI Engineer Islamabad"
+  "AI Engineer Pakistan",
+  "Computer Vision Engineer Islamabad"
 ];

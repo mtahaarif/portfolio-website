@@ -10,49 +10,52 @@ const poppins = Poppins({
   preload: true,
 })
 
-// SEO-Optimized Metadata for "Computer Engineering and AI Engineer & Computer Vision Specialist"
+// SEO-Optimized Metadata for "AI Engineer | Computer Vision Specialist | Embedded AI"
 export const metadata: Metadata = {
   metadataBase: new URL('https://taha-portfolio-website-blond.vercel.app'),
   
   title: {
-    default: 'Muhammad Taha | Computer Engineering & AI Engineer | Computer Vision Specialist',
-    template: '%s | Muhammad Taha Portfolio'
+    default: 'Muhammad Taha | AI/ML Engineer | Computer Vision & Embedded AI Specialist',
+    template: '%s | Muhammad Taha - AI Engineer'
   },
   
-  description: 'Muhammad Taha - Computer Engineering student at NUST specializing as an AI Engineer & Computer Vision Specialist. Expert in TensorFlow, PyTorch, OpenCV, Deep Learning, Full-Stack Development (Next.js, TypeScript), and FPGA/Embedded Systems. View AI/ML projects, certifications from DeepLearning.AI & Stanford.',
+  description: 'AI/ML Engineer specializing in Multimodal AI Systems, Computer Vision, Medical Imaging, and Speech Emotion Recognition. Expert in TensorFlow, CNNs, Transformers, and Librosa. Full-stack delivery with PHP, MySQL, WordPress, and Vercel. FPGA/Verilog hardware design with MATLAB validation. NUST Computer Engineering.',
   
   keywords: [
-    // Primary SEO Keywords
-    'Computer Engineering',
+    // Tier 1: AI Engineering (Primary)
     'AI Engineer',
-    'Computer Vision Specialist',
     'Machine Learning Engineer',
+    'Computer Vision Specialist',
     'Deep Learning Engineer',
-    
-    // Technical Skills
     'TensorFlow Developer',
-    'PyTorch Developer',
-    'OpenCV Expert',
-    'YOLO Object Detection',
-    'CNN Neural Networks',
-    'NLP Engineer',
-    'LLM Developer',
-    'LangChain',
-    'RAG Applications',
-    'Hugging Face',
+    'Multimodal AI',
+    'Speech Emotion Recognition',
+    'Medical Imaging AI',
+    'CNN Developer',
+    'Transformer Architecture',
+    'Librosa',
+    'Medical AI',
+    'Histopathology Classification',
     
-    // Full-Stack
+    // Tier 2: Software Engineering
     'Full-Stack Developer',
+    'PHP Developer',
+    'MySQL Database',
+    'WordPress Developer',
     'Next.js Developer',
     'TypeScript Developer',
-    'React Developer',
-    'Node.js Developer',
+    'Vercel Deployment',
+    'HostGator',
+    'Flask API',
     
-    // Hardware
+    // Tier 3: Embedded & Hardware
     'FPGA Developer',
-    'Embedded Systems Engineer',
-    'IoT Developer',
     'Verilog HDL',
+    'Embedded AI',
+    'MATLAB Simulation',
+    'Fixed-Point Filter',
+    'Control Systems',
+    'Hardware Engineer',
     
     // Location & Education
     'NUST Pakistan',
@@ -83,23 +86,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://taha-portfolio-website-blond.vercel.app',
-    siteName: 'Muhammad Taha Portfolio',
-    title: 'Muhammad Taha | Computer Engineering & AI Engineer | Computer Vision Specialist',
-    description: 'AI Engineer & Computer Vision Specialist with expertise in TensorFlow, PyTorch, OpenCV, Deep Learning, Next.js, and FPGA development. View projects in Medical AI, Speech Emotion Recognition, and Full-Stack CMS development.',
+    siteName: 'Muhammad Taha - AI/ML Engineer Portfolio',
+    title: 'Muhammad Taha | AI/ML Engineer | Computer Vision & Embedded AI',
+    description: 'AI/ML Engineer building Multimodal AI Systems, Medical Imaging classifiers, and Speech Emotion Recognition. Full-stack delivery for healthcare clients. FPGA hardware design with MATLAB validation.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Muhammad Taha - AI Engineer & Computer Vision Specialist Portfolio',
+        alt: 'Muhammad Taha - AI/ML Engineer & Computer Vision Specialist',
       },
     ],
   },
   
   twitter: {
     card: 'summary_large_image',
-    title: 'Muhammad Taha | AI Engineer & Computer Vision Specialist',
-    description: 'Computer Engineering student specializing in AI/ML, Computer Vision, and Full-Stack Development. View portfolio showcasing Deep Learning projects and certifications.',
+    title: 'Muhammad Taha | AI/ML Engineer | Computer Vision Specialist',
+    description: 'Building Multimodal AI, Medical Imaging, and Speech Emotion Recognition systems. Full-stack delivery & FPGA hardware design.',
     images: ['/og-image.png'],
     creator: '@mtahaarif',
   },
@@ -131,8 +134,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Muhammad Taha',
-  jobTitle: 'AI Engineer & Computer Vision Specialist',
-  description: 'Computer Engineering student specializing in Artificial Intelligence, Machine Learning, Computer Vision, and Full-Stack Development',
+  jobTitle: 'AI/ML Engineer | Computer Vision & Embedded AI Specialist',
+  description: 'AI/ML Engineer specializing in Multimodal AI Systems, Computer Vision, Medical Imaging Classification, and Speech Emotion Recognition. Expert in TensorFlow, CNNs, Transformers, and Librosa. Full-stack delivery with PHP, MySQL, WordPress, and Vercel. FPGA/Verilog hardware design with MATLAB validation.',
   url: 'https://taha-portfolio-website-blond.vercel.app',
   image: 'https://taha-portfolio-website-blond.vercel.app/profile.jpg',
   email: 'ch.tahaarif2005@gmail.com',
@@ -148,17 +151,37 @@ const jsonLd = {
     url: 'https://nust.edu.pk'
   },
   knowsAbout: [
+    // Tier 1: AI Engineering
     'Artificial Intelligence',
     'Machine Learning',
     'Deep Learning',
     'Computer Vision',
     'TensorFlow',
-    'PyTorch',
-    'OpenCV',
+    'CNNs (Convolutional Neural Networks)',
+    'Transformer Architecture',
+    'Multimodal AI',
+    'Speech Emotion Recognition',
+    'Librosa',
+    'Medical Imaging AI',
+    'Histopathology Classification',
+    
+    // Tier 2: Software Engineering
+    'Full-Stack Development',
+    'PHP',
+    'MySQL',
+    'WordPress',
     'Next.js',
     'TypeScript',
-    'Full-Stack Development',
+    'Flask',
+    'Vercel',
+    'HostGator',
+    
+    // Tier 3: Embedded & Hardware
     'FPGA Development',
+    'Verilog HDL',
+    'MATLAB',
+    'Fixed-Point Filters',
+    'Control Systems',
     'Embedded Systems'
   ],
   sameAs: [
