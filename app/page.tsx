@@ -1116,31 +1116,41 @@ const projectCategories = [
 
 const skillCategories = [
   {
-    title: "AI Engineering Skills",
+    title: "AI & Machine Learning",
     icon: Brain,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
     skills: [
       "TensorFlow",
       "PyTorch",
+      "Transformers",
+      "BERT",
+      "RAG",
+      "LangChain",
+      "LLaMA-3",
+      "Librosa",
+      "MFCCs"
+    ]
+  },
+  {
+    title: "Computer Vision & Deep Learning",
+    icon: Cpu,
+    iconBg: "bg-blue-400/20",
+    iconColor: "text-blue-300",
+    skills: [
       "OpenCV",
       "YOLO",
       "CNN",
       "RNN",
       "LSTM",
       "BiLSTM",
-      "Transformers",
-      "BERT",
-      "RAG",
-      "LangChain",
-      "LLaMA-3",
       "Image Processing",
-      "Librosa",
-      "MFCCs"
+      "Optical Flow",
+      "MediaPipe"
     ]
   },
   {
-    title: "Software Engineering Skills",
+    title: "Full-Stack Web Development",
     icon: Code2,
     iconBg: "bg-purple-600/20",
     iconColor: "text-purple-400",
@@ -1151,20 +1161,28 @@ const skillCategories = [
       "Node.js",
       "Tailwind CSS",
       "REST APIs",
+      "Vercel",
+      "Vercel Blob"
+    ]
+  },
+  {
+    title: "Backend & Database",
+    icon: Code2,
+    iconBg: "bg-green-500/20",
+    iconColor: "text-green-400",
+    skills: [
       "MySQL",
       "Relational Database Design",
       "SQL",
       "JWT Authentication",
       "Serverless Functions",
-      "Vercel",
-      "Vercel Blob",
-      "CI/CD Pipelines",
-      "Git",
-      "Docker"
+      "API Development",
+      "SQL Optimization",
+      "Middleware"
     ]
   },
   {
-    title: "Hardware Skills",
+    title: "Hardware & IoT",
     icon: Cpu,
     iconBg: "bg-orange-500/20",
     iconColor: "text-orange-400",
@@ -1176,8 +1194,38 @@ const skillCategories = [
       "ESP32",
       "Arduino",
       "Raspberry Pi",
-      "VGA",
-      "Sensors"
+      "Sensors",
+      "VGA"
+    ]
+  },
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    iconBg: "bg-indigo-500/20",
+    iconColor: "text-indigo-400",
+    skills: [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "C++",
+      "Java",
+      "SQL",
+      "Verilog",
+      "MATLAB"
+    ]
+  },
+  {
+    title: "Tools & DevOps",
+    icon: Wrench,
+    iconBg: "bg-cyan-500/20",
+    iconColor: "text-cyan-400",
+    skills: [
+      "Docker",
+      "Git",
+      "Linux",
+      "CI/CD Pipelines",
+      "Flask",
+      "Qt"
     ]
   }
 ];
