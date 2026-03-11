@@ -7,6 +7,7 @@ import {
   Menu, X, FileText, ArrowRight, Server,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import type { Project } from './data/projects';
 
 /* ─── Data ─── */
@@ -300,85 +301,108 @@ export default function Home() {
 
       {/* ═══════════════════ HERO ═══════════════════ */}
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-center lg:text-left"
-          >
-            <p className="text-blue-400 font-medium mb-3 tracking-wide text-sm uppercase">
-              {profile.positioning}
-            </p>
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+            {/* Text column */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="text-center lg:text-left flex-1"
+            >
+              <p className="text-amber-400 font-medium mb-3 tracking-wide text-sm uppercase">
+                {profile.positioning}
+              </p>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-3 leading-tight">
-              {profile.name.split(' ')[0]}
-              <span className="gradient-text"> {profile.name.split(' ').slice(1).join(' ')}</span>
-            </h1>
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-3 leading-tight">
+                {profile.name.split(' ')[0]}
+                <span className="gradient-text"> {profile.name.split(' ').slice(1).join(' ')}</span>
+              </h1>
 
-            <h2 className="text-xl md:text-2xl text-white/80 mb-6 max-w-2xl lg:max-w-none">
-              {profile.headline}
-            </h2>
+              <h2 className="text-xl md:text-2xl text-white/80 mb-6 max-w-2xl lg:max-w-none">
+                {profile.headline}
+              </h2>
 
-            <p className="text-white/55 text-base md:text-lg mb-10 max-w-2xl lg:max-w-3xl leading-relaxed">
-              Experience includes <strong className="text-white/90">face anti-spoofing</strong>,{' '}
-              <strong className="text-white/90">document verification</strong>, and{' '}
-              <strong className="text-white/90">production CV pipelines</strong> at TruID Technologies.
-              Built multimodal emotion recognition systems deployed on edge devices.
-            </p>
+              <p className="text-white/55 text-base md:text-lg mb-10 max-w-2xl lg:max-w-3xl leading-relaxed">
+                Experience includes <strong className="text-white/90">face anti-spoofing</strong>,{' '}
+                <strong className="text-white/90">document verification</strong>, and{' '}
+                <strong className="text-white/90">production CV pipelines</strong> at TruID Technologies.
+                Built multimodal emotion recognition systems deployed on edge devices.
+              </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center lg:justify-start">
-              <motion.a
-                href="#projects"
-                className="btn-primary text-white text-center flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                View Projects <ArrowRight size={18} />
-              </motion.a>
-              <motion.a
-                href="/Muhammad_Taha_Resume.pdf"
-                download
-                className="btn-secondary text-white flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Download size={18} /> Resume
-              </motion.a>
-            </div>
-
-            {/* Proof grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl lg:max-w-3xl mx-auto lg:mx-0">
-              {proofPoints.map((p) => (
-                <div key={p.label} className="glass-card rounded-2xl p-4 text-center">
-                  <p className="text-xl font-bold gradient-text">{p.value}</p>
-                  <p className="text-white/50 text-xs mt-1">{p.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Social row */}
-            <div className="flex gap-3 mt-8 justify-center lg:justify-start">
-              {[
-                { href: `mailto:${profile.email}`, icon: Mail, label: 'Email' },
-                { href: profile.linkedIn, icon: Linkedin, label: 'LinkedIn' },
-                { href: profile.github, icon: Github, label: 'GitHub' },
-              ].map(({ href, icon: Icon, label }) => (
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center lg:justify-start">
                 <motion.a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="social-icon"
-                  whileHover={{ scale: 1.1 }}
-                  aria-label={label}
+                  href="#projects"
+                  className="btn-primary text-white text-center flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  <Icon size={20} />
+                  View Projects <ArrowRight size={18} />
                 </motion.a>
-              ))}
-            </div>
-          </motion.div>
+                <motion.a
+                  href="/Muhammad_Taha_Resume.pdf"
+                  download
+                  className="btn-secondary text-white flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Download size={18} /> Resume
+                </motion.a>
+              </div>
+
+              {/* Proof grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl lg:max-w-3xl mx-auto lg:mx-0">
+                {proofPoints.map((p) => (
+                  <div key={p.label} className="glass-card rounded-2xl p-4 text-center">
+                    <p className="text-xl font-bold gradient-text">{p.value}</p>
+                    <p className="text-white/50 text-xs mt-1">{p.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social row */}
+              <div className="flex gap-3 mt-8 justify-center lg:justify-start">
+                {[
+                  { href: `mailto:${profile.email}`, icon: Mail, label: 'Email' },
+                  { href: profile.linkedIn, icon: Linkedin, label: 'LinkedIn' },
+                  { href: profile.github, icon: Github, label: 'GitHub' },
+                ].map(({ href, icon: Icon, label }) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="social-icon"
+                    whileHover={{ scale: 1.1 }}
+                    aria-label={label}
+                  >
+                    <Icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Profile picture */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative flex-shrink-0"
+            >
+              <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-amber-500/30 shadow-2xl shadow-amber-500/10">
+                <Image
+                  src="/profile.jpg"
+                  alt="Muhammad Taha - AI Engineer"
+                  width={288}
+                  height={288}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
+              <div className="absolute -inset-3 rounded-full border border-amber-500/10 animate-pulse" />
+            </motion.div>
+          </div>
         </div>
 
         <motion.div style={{ opacity: heroOpacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2">
