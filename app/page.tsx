@@ -341,7 +341,7 @@ export default function Home() {
                   View Projects <ArrowRight size={18} />
                 </motion.a>
                 <motion.a
-                  href="/Muhammad_Taha_Resume.pdf"
+                  href="/Resume.pdf"
                   download
                   className="btn-secondary text-white flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.04 }}
@@ -613,7 +613,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
-                  href="/Muhammad_Taha_Resume.pdf"
+                  href="/Resume.pdf"
                   download
                   className="btn-primary text-white flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.04 }}
@@ -622,7 +622,7 @@ export default function Home() {
                   <Download size={18} /> Download PDF
                 </motion.a>
                 <motion.a
-                  href="/Muhammad_Taha_Resume.pdf"
+                  href="/Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-white flex items-center justify-center gap-2"
