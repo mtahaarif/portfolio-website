@@ -1,52 +1,56 @@
-import { Brain, Code2, Cpu, Wrench } from 'lucide-react';
+import { Brain, Eye, Server, Code2, Cpu } from 'lucide-react';
 
-// Skill Categories - Strict Context (Documented Skills Only)
+// Skills — prioritized for AI/CV/ML positioning
 export const skillCategories = [
-  // Tier 1: AI Engineering (Primary)
   {
-    title: "AI & Machine Learning",
-    icon: Brain,
+    title: "Computer Vision",
+    icon: Eye,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
-    skills: ["TensorFlow", "Keras", "CNNs", "Transformers", "Multimodal AI", "Speech Emotion Recognition", "Librosa", "Feature Extraction"]
+    skills: [
+      "OpenCV", "YOLO", "MediaPipe", "Optical Flow",
+      "Face Anti-Spoofing", "3D Reconstruction", "Image Processing",
+    ],
   },
   {
-    title: "Computer Vision & Medical AI",
-    icon: Cpu,
-    iconBg: "bg-blue-400/20",
-    iconColor: "text-blue-300",
-    skills: ["Image Classification", "Medical Imaging", "Histopathology", "Self-Driving Vision", "WBC Analysis", "Cancer Classification", "Data Augmentation"]
+    title: "AI / Deep Learning",
+    icon: Brain,
+    iconBg: "bg-indigo-600/20",
+    iconColor: "text-indigo-400",
+    skills: [
+      "PyTorch", "TensorFlow", "CNNs", "BiLSTM", "Attention",
+      "LLMs", "RAG", "LoRA", "LSTM", "Temporal Fusion Transformer",
+      "XGBoost", "LightGBM", "SHAP",
+    ],
   },
-  
-  // Tier 2: Software Engineering
   {
-    title: "Full-Stack Development",
+    title: "ML Infrastructure",
+    icon: Server,
+    iconBg: "bg-emerald-600/20",
+    iconColor: "text-emerald-400",
+    skills: [
+      "FastAPI", "Docker", "Kubernetes", "Terraform",
+      "Kafka", "Git", "Linux", "CI/CD",
+    ],
+  },
+  {
+    title: "Software Engineering",
     icon: Code2,
     iconBg: "bg-purple-600/20",
     iconColor: "text-purple-400",
-    skills: ["PHP", "MySQL", "WordPress", "Next.js 14", "TypeScript", "React", "Tailwind CSS", "Flask"]
+    skills: [
+      "Python", "TypeScript", "C++", "Java", "SQL",
+      "Next.js", "React", "Node.js", "REST APIs", "MySQL", "Tailwind CSS",
+    ],
   },
   {
-    title: "Deployment & DevOps",
-    icon: Wrench,
-    iconBg: "bg-green-500/20",
-    iconColor: "text-green-400",
-    skills: ["Vercel", "HostGator", "cPanel", "Git", "GitHub", "CI/CD", "REST APIs", "Domain Management"]
-  },
-  
-  // Tier 3: Embedded & Hardware
-  {
-    title: "Embedded & Hardware",
+    title: "Hardware / Embedded",
     icon: Cpu,
-    iconBg: "bg-orange-500/20",
-    iconColor: "text-orange-400",
-    skills: ["Verilog HDL", "FPGA", "Fixed-Point Filters", "IIR Filters", "Digital Logic Design", "Hardware Simulation"]
+    iconBg: "bg-amber-600/20",
+    iconColor: "text-amber-400",
+    skills: [
+      "FPGA (Xilinx)", "Verilog HDL", "Raspberry Pi",
+      "ESP32", "Arduino", "Digital Logic Design",
+    ],
   },
-  {
-    title: "Control & Simulation",
-    icon: Wrench,
-    iconBg: "bg-cyan-500/20",
-    iconColor: "text-cyan-400",
-    skills: ["MATLAB", "Simulink", "Control Systems", "PID Tuning", "Stability Analysis", "System Modeling"]
-  }
 ];

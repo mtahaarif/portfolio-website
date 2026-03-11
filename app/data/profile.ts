@@ -1,77 +1,72 @@
-// Profile data - AI/ML Engineer | Computer Vision & Embedded AI Specialist
+// Profile data — AI Engineer | Computer Vision, Multimodal AI, ML Systems, Embedded AI
 export const profile = {
   name: "Muhammad Taha",
-  title: "AI/ML Engineer | Computer Vision & Embedded AI Specialist",
-  headline: "AI/ML Engineer Building Scalable Software & Embedded Solutions",
+  title: "AI Engineer | Computer Vision, Multimodal AI, ML Systems & Embedded AI",
+  headline: "Building real-time computer vision, multimodal AI, and production ML systems",
   email: "ch.tahaarif2005@gmail.com",
-  phone: "+92 316 5765670",
+  phone: "+92 317 5434059",
   location: "Islamabad, Pakistan",
   linkedIn: "https://linkedin.com/in/muhammad-taha-21a163256",
   github: "https://github.com/mtahaarif",
   website: "https://taha-portfolio-website-blond.vercel.app",
-  
-  bio: `AI/ML Engineer specializing in Multimodal AI Systems, Computer Vision, and Medical Imaging. 
-        Expert in TensorFlow, CNNs, Transformers, and Librosa for Speech Emotion Recognition and 
-        Histopathology Classification. Built SERENITY—a multimodal mental health AI system combining 
-        text, speech, and facial analysis. Full-stack delivery experience: developed and deployed a 
-        HIPAA-adjacent dental CMS for Haines City Dental using PHP, MySQL, WordPress, and HostGator. 
-        Hardware engineer with Verilog/FPGA expertise—designed fixed-point IIR filters validated in 
-        MATLAB. Control systems background including PID tuning and stability analysis. 
-        Industry-ready engineer bridging AI research with production deployment.`,
-  
+
+  summary: `AI Engineer specializing in computer vision, multimodal deep learning, and production ML systems. Deployed face anti-spoofing, document verification, and signature forgery detection models at a biometrics company. Built real-time emotion recognition systems with CNN-BiLSTM-Attention and LLM-based counseling optimized for edge devices. Strong foundation in full-stack development, systems design, and digital hardware including FPGA and custom processor architectures.`,
+
   education: {
     degree: "B.E. Computer Engineering",
     institution: "NUST (National University of Sciences & Technology)",
-    period: "Sep 2022 – May 2026",
-    cgpa: "3.11"
+    period: "2022 – 2026",
   },
 
-  stats: {
-    cgpa: "3.11",
-    projects: "15+",
-    certifications: "5",
-    workExperience: "2"
-  }
+  // Proof-oriented stats (no CGPA)
+  stats: [
+    { value: "CV Internship", label: "TruID Technologies" },
+    { value: "15+", label: "Projects Built" },
+    { value: "Real-Time", label: "AI Systems" },
+    { value: "Edge AI", label: "Deployment" },
+  ],
+
+  // Metric highlights for hero
+  highlights: [
+    "90% faster content operations",
+    "98.6% validation accuracy",
+    "50K+ audio samples modeled",
+    "Real-time inference pipelines",
+  ],
 };
 
-// SEO Keywords - Strict Context (Documented Skills Only)
+// SEO Keywords — recruiter-first, AI/CV-focused
 export const seoKeywords = [
-  // Tier 1: AI Engineering (Primary)
   "AI Engineer",
+  "Computer Vision Engineer",
+  "Applied AI Engineer",
   "Machine Learning Engineer",
-  "Computer Vision Specialist",
-  "Deep Learning",
-  "TensorFlow",
-  "CNNs",
-  "Transformer Architecture",
   "Multimodal AI",
-  "Speech Emotion Recognition",
-  "Librosa",
-  "Medical Imaging AI",
-  "Histopathology Classification",
-  
-  // Tier 2: Software Engineering
-  "Full-Stack Developer",
-  "PHP Developer",
-  "MySQL",
-  "WordPress Developer",
+  "ML Systems",
+  "Real-Time Inference",
+  "Embedded AI",
+  "Edge AI",
+  "Biometrics",
+  "Face Anti-Spoofing",
+  "Deep Learning",
+  "PyTorch",
+  "TensorFlow",
+  "OpenCV",
+  "CNN",
+  "LSTM",
+  "Transformer",
+  "RAG",
+  "LoRA",
+  "Computer Vision",
+  "FastAPI",
+  "Docker",
+  "Kubernetes",
   "Next.js",
   "TypeScript",
-  "Flask",
-  "Vercel Deployment",
-  "HostGator",
-  
-  // Tier 3: Embedded & Hardware
-  "FPGA Developer",
-  "Verilog HDL",
-  "MATLAB",
-  "Fixed-Point Filter",
-  "Control Systems",
-  "Embedded AI",
-  
-  // Location & Education
-  "NUST",
-  "Pakistan",
+  "FPGA",
+  "Verilog",
+  "Raspberry Pi",
+  "Muhammad Taha",
   "AI Engineer Pakistan",
-  "Computer Vision Engineer Islamabad"
+  "Computer Vision Engineer Islamabad",
 ];
