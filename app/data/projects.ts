@@ -13,25 +13,25 @@ export interface Project {
 export const featuredProjects: Project[] = [
   {
     tag: "Multimodal AI",
-    title: "SERENITY: Multimodal AI Mental Health System",
+    title: "SERENITY (FYP): Smart Emotion Recognition and Neural Intervention",
     problem:
-      "Mental health screening relies on single-modality tools that miss non-verbal cues and emotional nuance.",
+      "Most conversational mental health tools ignore multimodal emotional cues, reducing context quality and response relevance.",
     approach:
-      "Built an emotion recognition platform fusing facial expression analysis, speech recognition, and LLM-based counseling. Developed CNN-BiLSTM-Attention network trained on RAVDESS, CREMA-D, and IEMOCAP speech datasets. Fine-tuned LLM on Empathetic Dialogues, CounselChat, and DIAC-WOZ.",
+      "Built a local-first multimodal assistant using FER (TFLite), SER (TFLite), Whisper Tiny transcription, RAG retrieval (FAISS), and a quantized Qwen2.5-1.5B model with emotion-aware prompting. Added SQLite + SQLAlchemy conversation memory, timeout guards, and fallback handling for reliable real-time sessions.",
     result:
-      "Deployed on Raspberry Pi 5 for edge inference with real-time multimodal emotion detection and empathetic AI responses.",
-    tech: ["PyTorch", "CNN-BiLSTM-Attention", "LoRA", "RAG", "Optical Flow", "Raspberry Pi"],
-    github: "https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-",
+      "Delivered end-to-end multimodal inference with therapist-style responses on constrained hardware, with architecture ready for hybrid edge-cloud offload.",
+    tech: ["FastAPI", "TensorFlow Lite", "Whisper Tiny", "Qwen2.5", "RAG", "FAISS", "SQLite", "SQLAlchemy", "Raspberry Pi 5"],
+    github: "https://github.com/mtahaarif/Smart-Emotion-Recognition-and-Neural-Intervention-Technology-SERENITY-",
   },
   {
     tag: "Clinical AI",
     title: "MedTraceAI: Clinical Deterioration Prediction",
     problem:
-      "Early warning signs of clinical deterioration in hospital patients are often detected too late.",
+      "Clinical deterioration signals are distributed across streaming vitals, labs, medications, and ADT events, making early intervention difficult.",
     approach:
-      "Developed a real-time clinical AI system detecting early warning signs from streaming vitals, labs, and medications. Implemented LSTM and Temporal Fusion Transformer with multimodal feature fusion and SHAP explainability.",
+      "Built multimodal temporal modeling pipelines with LSTM and Temporal Fusion Transformer, strict patient-time correctness, and explainability through calibration and SHAP-based analysis.",
     result:
-      "Production stack with Kafka, FastAPI, Kubernetes, and Terraform; clinician-facing dashboards for actionable alerts.",
+      "Enabled low-latency bedside risk scoring with clinician-facing dashboards and production infrastructure using Kafka, FastAPI, Kubernetes, and Terraform.",
     tech: ["LSTM", "Temporal Fusion Transformer", "SHAP", "Kafka", "FastAPI", "Kubernetes", "Terraform"],
     github: "https://github.com/mtahaarif",
   },
@@ -41,51 +41,71 @@ export const featuredProjects: Project[] = [
     problem:
       "A dental practice needed a modern web platform to replace a legacy site, with non-technical content management.",
     approach:
-      "Architected Next.js 14 + TypeScript + MySQL stack with drag-and-drop interface and JWT authentication. Engineered hybrid storage combining Vercel Blob with Git-based CDN assets.",
+      "Architected Next.js 14 + TypeScript + MySQL with JWT auth, drag-and-drop admin workflows, optimistic UI updates, and hybrid storage using Vercel Blob plus Git-backed assets.",
     result:
-      "90% faster content updates (30+ min → <2 min) and <100kB initial page load through SSR and aggressive caching.",
+      "Reduced content update turnaround by 90% (30+ minutes to under 2 minutes) and achieved sub-100kB initial load via SSR, caching, and AVIF/WebP optimization.",
     tech: ["Next.js 14", "TypeScript", "MySQL", "JWT", "Vercel Blob", "Tailwind CSS"],
     github: "https://github.com/mtahaarif/hainescitydental",
   },
   {
     tag: "Computer Vision",
-    title: "Real-Time Self-Driving Image Analysis",
+    title: "Human Pose Estimation and Classification",
     problem:
-      "Autonomous navigation requires real-time visual perception on resource-constrained hardware.",
+      "Pose understanding needs robust evaluation across both learned and classical pipelines under strict anatomical constraints.",
     approach:
-      "Built autonomous navigation system on Raspberry Pi 5 using classical CV for lane detection and obstacle segmentation. Implemented Hough transforms, adaptive thresholding, and edge detection for real-time driving decisions.",
+      "Built two pipelines on MPII: MediaPipe keypoint extraction and a from-scratch classical CV pipeline using contours, skeletonization, and geometric heuristics. Trained classifiers using joint-angle features.",
     result:
-      "Low-latency real-time inference pipeline running on edge hardware for live autonomous navigation.",
-    tech: ["OpenCV", "Hough Transform", "Edge Detection", "Raspberry Pi", "Real-Time Processing"],
-    github: "https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities",
+      "Delivered comparative benchmarking with PCKh@0.5, skeleton completeness, symmetry scoring, and angle plausibility analysis.",
+    tech: ["OpenCV", "MediaPipe", "SVM", "Random Forest", "Feature Engineering"],
+    github: "https://github.com/mtahaarif",
   },
   {
     tag: "3D Vision",
     title: "3D Environment Reconstruction",
     problem:
-      "Converting 2D multi-view images into accurate 3D point clouds for robotics and AR/VR applications.",
+      "Recovering 3D structure from 2D multi-view inputs requires accurate feature correspondences and camera geometry estimation.",
     approach:
-      "Developed multi-view 3D reconstruction using SIFT/ORB/SURF feature matching and epipolar geometry. Generated dense point clouds via stereo triangulation.",
+      "Implemented feature matching (SIFT/ORB/SURF), epipolar geometry, camera pose recovery, stereo triangulation, and point-cloud refinement.",
     result:
-      "Accurate 3D scene reconstruction enabling applications in robotics, AR/VR, and autonomous navigation.",
+      "Generated dense and sparse reconstructions suitable for robotics, AR/VR, autonomous navigation, and spatial mapping tasks.",
     tech: ["OpenCV", "SIFT", "ORB", "Epipolar Geometry", "Stereo Vision", "Point Clouds"],
     github: "https://github.com/mtahaarif",
   },
   {
-    tag: "Applied ML",
-    title: "Santander Transaction Prediction",
+    tag: "Edge CV",
+    title: "Real-Time Image Analysis for Self-Driving Capabilities",
     problem:
-      "Predicting rare transaction events from highly imbalanced, high-dimensional tabular data.",
+      "Resource-constrained autonomous driving stacks need robust lane and obstacle understanding with real-time control feedback.",
     approach:
-      "Built end-to-end ML pipeline with XGBoost, LightGBM, and Random Forest optimized for ROC-AUC. Applied SHAP and Permutation Feature Importance for model interpretability.",
+      "Built a classical CV pipeline on Raspberry Pi 5 using ROI selection, downsampling, adaptive thresholding, edge detection, and Hough transforms for lane/obstacle perception.",
     result:
-      "Strong ROC-AUC performance with interpretable predictions on a competitive Kaggle benchmark.",
-    tech: ["XGBoost", "LightGBM", "SHAP", "Scikit-learn", "Feature Engineering"],
-    github: "https://github.com/mtahaarif",
+      "Delivered real-time driving command generation (stop, move, left, right, forward, backward) with FPS and robustness tracking under changing conditions.",
+    tech: ["OpenCV", "Raspberry Pi 5", "Hough Transform", "Adaptive Thresholding", "Real-Time Processing"],
+    github: "https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities",
   },
 ];
 
 export const secondaryProjects: Project[] = [
+  {
+    tag: "Medical AI",
+    title: "Lung and Colon Cancer Histopathology Classification",
+    problem: "Histopathological diagnosis workflows are time-consuming and require consistent image-level classification support.",
+    approach:
+      "Built a CNN image classifier for 5 histopathology classes with systematic tuning of dropout, max-pooling, and architecture depth.",
+    result: "Achieved 98.6% validation accuracy on the target classification benchmark.",
+    tech: ["CNN", "PyTorch", "Medical Imaging", "Deep Learning"],
+    github: "https://github.com/mtahaarif",
+  },
+  {
+    tag: "Applied ML",
+    title: "Santander Customer Transaction Prediction",
+    problem: "High-dimensional tabular prediction requires strong generalization with transparent feature contribution analysis.",
+    approach:
+      "Built end-to-end tabular ML workflow with feature engineering, cross-validation, and model comparison across Logistic Regression, Random Forest, XGBoost, and LightGBM.",
+    result: "Produced competitive ROC-AUC performance with SHAP and permutation-based explainability.",
+    tech: ["XGBoost", "LightGBM", "SHAP", "Scikit-learn", "Feature Engineering"],
+    github: "https://github.com/mtahaarif",
+  },
   {
     tag: "FPGA / Hardware AI",
     title: "FPGA Snake Game with Hardware AI",
@@ -105,5 +125,15 @@ export const secondaryProjects: Project[] = [
     result: "Working processor executing custom assembly instructions in simulation and synthesis.",
     tech: ["Verilog HDL", "ISA Design", "Digital Logic", "FPGA"],
     github: "https://github.com/mtahaarif/Custom-16-Bit-Processor",
+  },
+  {
+    tag: "Systems Programming",
+    title: "Comprehensive OS Scheduler and Disk Simulator",
+    problem: "Understanding scheduling trade-offs requires live simulation of concurrent CPU and disk algorithms.",
+    approach:
+      "Built Java simulation for Round Robin, EDF, SCAN, and C-SCAN with concurrent execution using SwingWorker and visual Gantt timeline outputs.",
+    result: "Delivered an interactive analysis tool for algorithm behavior without UI blocking.",
+    tech: ["Java", "SwingWorker", "Concurrency", "Scheduling Algorithms"],
+    github: "https://github.com/mtahaarif",
   },
 ];

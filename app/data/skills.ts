@@ -1,6 +1,6 @@
 import { Brain, Eye, Server, Code2, Cpu } from 'lucide-react';
 
-// Skills — prioritized for AI/CV/ML positioning
+// Skills extracted from project and experience evidence
 export const skillCategories = [
   {
     title: "Computer Vision",
@@ -8,8 +8,15 @@ export const skillCategories = [
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
     skills: [
-      "OpenCV", "YOLO", "MediaPipe", "Optical Flow",
-      "Face Anti-Spoofing", "3D Reconstruction", "Image Processing",
+      "OpenCV",
+      "MediaPipe",
+      "Face Anti-Spoofing",
+      "Document Verification",
+      "3D Reconstruction",
+      "Pose Estimation",
+      "Image Segmentation",
+      "Hough Transform",
+      "SIFT/ORB/SURF",
     ],
   },
   {
@@ -18,19 +25,38 @@ export const skillCategories = [
     iconBg: "bg-indigo-600/20",
     iconColor: "text-indigo-400",
     skills: [
-      "PyTorch", "TensorFlow", "CNNs", "BiLSTM", "Attention",
-      "LLMs", "RAG", "LoRA", "LSTM", "Temporal Fusion Transformer",
-      "XGBoost", "LightGBM", "SHAP",
+      "PyTorch",
+      "TensorFlow Lite",
+      "CNN",
+      "BiLSTM",
+      "Attention",
+      "LSTM",
+      "Temporal Fusion Transformer",
+      "Whisper Tiny",
+      "Qwen",
+      "RAG",
+      "FAISS",
+      "XGBoost",
+      "LightGBM",
+      "SHAP",
     ],
   },
   {
-    title: "ML Infrastructure",
+    title: "ML Systems & Backend",
     icon: Server,
     iconBg: "bg-emerald-600/20",
     iconColor: "text-emerald-400",
     skills: [
-      "FastAPI", "Docker", "Kubernetes", "Terraform",
-      "Kafka", "Git", "Linux", "CI/CD",
+      "FastAPI",
+      "Kafka",
+      "Kubernetes",
+      "Terraform",
+      "SQLite",
+      "SQLAlchemy",
+      "Flask",
+      "REST APIs",
+      "Git",
+      "Linux",
     ],
   },
   {
@@ -39,8 +65,16 @@ export const skillCategories = [
     iconBg: "bg-purple-600/20",
     iconColor: "text-purple-400",
     skills: [
-      "Python", "TypeScript", "C++", "Java", "SQL",
-      "Next.js", "React", "Node.js", "REST APIs", "MySQL", "Tailwind CSS",
+      "Python",
+      "TypeScript",
+      "C++",
+      "Java",
+      "SQL",
+      "Next.js 14",
+      "React",
+      "MySQL",
+      "JWT",
+      "Tailwind CSS",
     ],
   },
   {
@@ -49,8 +83,12 @@ export const skillCategories = [
     iconBg: "bg-amber-600/20",
     iconColor: "text-amber-400",
     skills: [
-      "FPGA (Xilinx)", "Verilog HDL", "Raspberry Pi",
-      "ESP32", "Arduino", "Digital Logic Design",
+      "FPGA (Xilinx)",
+      "Verilog HDL",
+      "Raspberry Pi 5",
+      "ESP32",
+      "Arduino",
+      "Digital Logic Design",
     ],
   },
 ];

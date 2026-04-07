@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
+import { profile, seoKeywords } from './data/profile'
+import { certifications } from './data/certifications'
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -11,56 +13,21 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://taha-portfolio-website-blond.vercel.app'),
+  metadataBase: new URL(profile.website),
 
   title: {
-    default: 'Muhammad Taha | AI Engineer | Computer Vision, Multimodal AI & ML Systems',
-    template: '%s | Muhammad Taha — AI Engineer',
+    default: `${profile.name} | AI/ML Engineer | Computer Vision | Multimodal AI | ML Systems`,
+    template: `%s | ${profile.name}`,
   },
 
   description:
-    'AI Engineer specializing in computer vision, multimodal deep learning, and production ML systems. Deployed face anti-spoofing, document verification, and signature forgery detection at TruID Technologies. Building real-time inference pipelines, edge AI, and full-stack applications.',
+    'AI/ML Engineer specializing in computer vision, multimodal AI, and production ML systems. Experience includes face anti-spoofing, document verification, and signature forgery detection at TruID Technologies, plus real-time edge and cloud AI delivery across FastAPI, Kafka, Kubernetes, and Terraform.',
 
-  keywords: [
-    'AI Engineer',
-    'Computer Vision Engineer',
-    'Applied AI Engineer',
-    'Machine Learning Engineer',
-    'Multimodal AI',
-    'ML Systems',
-    'Deep Learning',
-    'Real-Time Inference',
-    'Edge AI',
-    'Embedded AI',
-    'Biometrics',
-    'Face Anti-Spoofing',
-    'PyTorch',
-    'TensorFlow',
-    'OpenCV',
-    'YOLO',
-    'CNN',
-    'LSTM',
-    'Transformer',
-    'RAG',
-    'LoRA',
-    'FastAPI',
-    'Docker',
-    'Kubernetes',
-    'Terraform',
-    'Kafka',
-    'Next.js',
-    'TypeScript',
-    'FPGA',
-    'Verilog',
-    'Raspberry Pi',
-    'Muhammad Taha',
-    'AI Engineer Pakistan',
-    'Computer Vision Engineer Islamabad',
-  ],
+  keywords: seoKeywords,
 
-  authors: [{ name: 'Muhammad Taha', url: 'https://github.com/mtahaarif' }],
-  creator: 'Muhammad Taha',
-  publisher: 'Muhammad Taha',
+  authors: [{ name: profile.name, url: profile.github }],
+  creator: profile.name,
+  publisher: profile.name,
 
   robots: {
     index: true,
@@ -77,32 +44,31 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://taha-portfolio-website-blond.vercel.app',
-    siteName: 'Muhammad Taha — AI Engineer Portfolio',
-    title: 'Muhammad Taha | AI Engineer | Computer Vision, Multimodal AI & ML Systems',
+    url: profile.website,
+    siteName: `${profile.name} — AI/ML Engineer Portfolio`,
+    title: `${profile.name} | AI/ML Engineer | Computer Vision | Multimodal AI`,
     description:
-      'AI Engineer building real-time computer vision, multimodal AI, and production ML systems. Experience includes face anti-spoofing, document verification, and production CV pipelines at TruID Technologies.',
+      'Computer vision and multimodal AI portfolio with real deployment evidence: biometrics pipelines, edge inference systems, and production ML architecture.',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Muhammad Taha — AI Engineer | Computer Vision, Multimodal AI & ML Systems',
+        url: '/profile.jpg',
+        width: 512,
+        height: 512,
+        alt: `${profile.name} — AI/ML Engineer`,
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Muhammad Taha | AI Engineer | Computer Vision & ML Systems',
+    title: `${profile.name} | AI/ML Engineer | Computer Vision`,
     description:
-      'Building real-time computer vision, multimodal AI, and production ML systems. Deployed biometrics pipelines and edge AI systems.',
-    images: ['/og-image.png'],
-    creator: '@mtahaarif',
+      'Real-time computer vision, multimodal AI, and production ML systems with deployment experience across edge and cloud.',
+    images: ['/profile.jpg'],
   },
 
   alternates: {
-    canonical: 'https://taha-portfolio-website-blond.vercel.app',
+    canonical: profile.website,
   },
 
   category: 'technology',
@@ -121,56 +87,35 @@ export const viewport: Viewport = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Muhammad Taha',
-  jobTitle: 'AI Engineer | Computer Vision, Multimodal AI, ML Systems & Embedded AI',
-  description:
-    'AI Engineer specializing in computer vision, multimodal deep learning, and production ML systems. Deployed face anti-spoofing, document verification, and signature forgery detection models. Built real-time emotion recognition systems with edge deployment.',
-  url: 'https://taha-portfolio-website-blond.vercel.app',
-  image: 'https://taha-portfolio-website-blond.vercel.app/profile.jpg',
-  email: 'ch.tahaarif2005@gmail.com',
+  name: profile.name,
+  jobTitle: profile.title,
+  description: profile.summary,
+  url: profile.website,
+  image: `${profile.website}/profile.jpg`,
+  email: profile.email,
   telephone: '+92-317-5434059',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Islamabad',
+    addressLocality: profile.location,
     addressCountry: 'Pakistan',
   },
   alumniOf: {
     '@type': 'EducationalOrganization',
-    name: 'NUST (National University of Sciences & Technology)',
+    name: profile.education.institution,
     url: 'https://nust.edu.pk',
   },
-  knowsAbout: [
-    'Computer Vision',
-    'Multimodal AI',
-    'Deep Learning',
-    'Machine Learning',
-    'Face Anti-Spoofing',
-    'Real-Time Inference',
-    'Edge AI',
-    'PyTorch',
-    'TensorFlow',
-    'OpenCV',
-    'YOLO',
-    'CNN',
-    'LSTM',
-    'Transformer',
-    'RAG',
-    'LoRA',
-    'FastAPI',
-    'Docker',
-    'Kubernetes',
-    'Terraform',
-    'Kafka',
-    'Next.js',
-    'TypeScript',
-    'FPGA',
-    'Verilog HDL',
-    'Raspberry Pi',
-    'Embedded Systems',
-  ],
+  knowsAbout: seoKeywords,
+  hasCredential: certifications.map((cert) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: cert.title,
+    recognizedBy: {
+      '@type': 'Organization',
+      name: cert.issuer,
+    },
+  })),
   sameAs: [
-    'https://github.com/mtahaarif',
-    'https://linkedin.com/in/muhammad-taha-21a163256',
+    profile.github,
+    profile.linkedIn,
   ],
 }
 

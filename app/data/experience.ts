@@ -6,10 +6,10 @@ export const experienceRoles = [
     subtitle: "National Science & Technology Park (NSTP), Islamabad",
     period: "Jul 2025 – Aug 2025",
     highlights: [
-      "Engineered Face Anti-Spoofing algorithms detecting liveness and differentiating real users from screen/paper attacks",
-      "Developed Document Verification system using texture analysis to classify original vs. photocopied identity cards",
-      "Designed Signature Forgery Detection models for banking applications",
-      "Optimized CV pipelines for real-time production inference",
+      "Engineered face anti-spoofing pipelines for liveness detection across live-user, screen replay, and paper attack scenarios",
+      "Developed texture-based document verification models to classify original vs photocopied national identity cards",
+      "Built signature forgery detection models and optimized inference for real-time deployment targets",
+      "Delivered production-ready computer vision workflows for identity security use cases",
     ],
   },
   {
@@ -19,9 +19,9 @@ export const experienceRoles = [
     subtitle: null,
     period: "Jan 2026 – Present",
     highlights: [
-      "Built custom Headless CMS for dental practice; migrated legacy codebase to Next.js with real-time MySQL sync",
-      "Developed Admin Dashboard with drag-and-drop UI, optimistic updates, and hybrid Vercel Blob storage",
-      "Reduced content update time by 90% (30+ min to <2 min); achieved <100kB initial load via SSR and AVIF optimization",
+      "Built a custom headless CMS for a dental practice and migrated a legacy platform to Next.js with real-time MySQL synchronization",
+      "Developed an admin dashboard with drag-and-drop authoring, optimistic updates, and hybrid Vercel Blob plus MySQL workflows",
+      "Reduced content update cycle by 90% (30+ minutes to under 2 minutes) and achieved sub-100kB initial load via SSR, caching, and AVIF optimization",
     ],
   },
 ];
