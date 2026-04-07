@@ -1,8 +1,8 @@
 // Profile data aligned to AI/ML, CV, multimodal systems, and production delivery
 export const profile = {
   name: "Muhammad Taha",
-  title: "AI/ML Engineer | Computer Vision | Multimodal AI | ML Systems | PyTorch · OpenCV · LLMs · Edge AI | NUST'26",
-  headline: "Building real-time computer vision and multimodal AI systems from edge deployment to cloud-native ML infrastructure",
+  title: "AI/ML Engineer | Computer Vision & Multimodal AI | NUST '26",
+  headline: "I build real-time computer vision and multimodal AI systems, from edge devices to production APIs.",
   email: "ch.tahaarif2005@gmail.com",
   phone: "+92 317 5434059",
   location: "Islamabad, Pakistan",
@@ -10,26 +10,22 @@ export const profile = {
   github: "https://github.com/mtahaarif",
   website: "https://taha-portfolio-website-blond.vercel.app",
 
-  summary: `AI/ML Engineer with hands-on production experience in computer vision, multimodal AI, and low-latency ML systems. At TruID Technologies, built face anti-spoofing, document verification, and signature forgery detection pipelines for real-world deployment. Delivered SERENITY (Final Year Project), a local-first multimodal assistant combining FER, SER, Whisper, RAG, and quantized LLM inference on constrained hardware. Built MedTraceAI with Kafka, FastAPI, Kubernetes, and Terraform for real-time clinical risk prediction and explainable decision support.`,
+  summary: `I am an AI/ML engineer focused on computer vision, multimodal AI, and low-latency ML systems. During my internship at TruID Technologies, I worked on face anti-spoofing, document verification, and signature forgery detection for real deployment. I also built SERENITY, a local-first multimodal assistant, and MedTraceAI, a real-time clinical risk system using Kafka, FastAPI, Kubernetes, and Terraform.`,
 
   education: {
     degree: "B.E. Computer Engineering",
     institution: "NUST (National University of Sciences & Technology)",
     period: "2022 – 2026",
     relevantCoursework: [
+      "Machine Learning",
+      "Computer Vision",
+      "Digital Image Processing",
+      "Digital Signal Processing",
       "Data Structures",
       "Operating Systems",
       "Computer Networks",
-      "Computer Organization & Architecture",
-      "Digital Signal Processing",
-      "Digital Image Processing",
-      "AI and Decision Support Systems",
-      "Machine Learning",
-      "Computer Vision",
       "Software Engineering",
       "Database Engineering",
-      "Digital System Design",
-      "Microprocessor and Microcontroller Design",
     ],
   },
 
@@ -43,10 +39,10 @@ export const profile = {
 
   // Additional metric highlights
   highlights: [
-    "90% faster content operations",
+    "90% faster content updates",
     "98.6% validation accuracy",
-    "Sub-100kB initial web load",
-    "Low-latency multimodal inference",
+    "Sub-100kB initial load",
+    "Real-time edge inference",
   ],
 };
 

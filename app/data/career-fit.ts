@@ -1,31 +1,31 @@
 export const linkedinHeadline =
-  "AI/ML Engineer | Computer Vision | Multimodal AI | ML Systems | PyTorch · OpenCV · LLMs · Edge AI | NUST'26";
+  "AI/ML Engineer | Computer Vision & Multimodal AI | PyTorch, OpenCV, Edge ML | NUST '26";
 
 export const topSkills = [
   {
-    name: "Computer Vision & Biometric AI",
+    name: "Computer Vision for Identity Security",
     evidence:
-      "Built face anti-spoofing, document verification, signature forgery detection, pose estimation, and 3D reconstruction pipelines.",
+      "Built face anti-spoofing, document verification, and signature forgery models, plus projects in pose estimation and 3D vision.",
   },
   {
     name: "Multimodal AI Systems",
     evidence:
-      "Delivered SERENITY using FER + SER + Whisper + quantized LLM + RAG with conversation memory in a single real-time loop.",
+      "Built SERENITY by combining FER, SER, Whisper, retrieval, and a quantized LLM into one real-time assistant.",
   },
   {
-    name: "Production ML Systems Engineering",
+    name: "ML Systems in Production",
     evidence:
-      "Built MedTraceAI with Kafka, FastAPI, Kubernetes, Terraform, and explainability workflows for low-latency clinical risk scoring.",
+      "Built MedTraceAI with Kafka, FastAPI, Kubernetes, and Terraform for low-latency risk scoring and explainability.",
   },
   {
     name: "Edge AI Deployment",
     evidence:
-      "Optimized and deployed real-time inference workloads on Raspberry Pi 5 and resource-constrained hardware targets.",
+      "Optimized real-time inference workloads for Raspberry Pi 5 and other resource-constrained hardware.",
   },
   {
     name: "Full-Stack AI Product Delivery",
     evidence:
-      "Shipped a custom Next.js + TypeScript + MySQL CMS platform with measurable performance impact and rapid content operations.",
+      "Shipped a Next.js + TypeScript + MySQL CMS platform with measurable performance and content workflow improvements.",
   },
 ];
 
@@ -34,54 +34,30 @@ export const specializationRanking = [
     field: "Computer Vision Engineer",
     fitScore: 10,
     reason:
-      "Strongest project density and real deployment evidence across biometrics, 3D vision, pose estimation, and real-time perception.",
+      "Strong project depth and real deployment work across biometrics, pose estimation, and real-time perception.",
   },
   {
     field: "Multimodal AI Engineer",
     fitScore: 9,
     reason:
-      "SERENITY demonstrates end-to-end multimodal fusion of vision, speech, retrieval, and LLM response generation.",
+      "SERENITY shows end-to-end multimodal fusion of vision, speech, retrieval, and LLM response generation.",
   },
   {
     field: "Applied ML / ML Systems Engineer",
     fitScore: 9,
     reason:
-      "MedTraceAI and production APIs show practical model serving, monitoring, explainability, and streaming system integration.",
+      "MedTraceAI and production APIs demonstrate practical model serving, monitoring, and explainability.",
   },
   {
     field: "Edge AI Engineer",
     fitScore: 8,
     reason:
-      "Multiple Raspberry Pi deployments and optimization patterns for local-first low-latency inference.",
-  },
-  {
-    field: "MLOps / Platform-Oriented AI Engineer",
-    fitScore: 8,
-    reason:
-      "Hands-on usage of Kafka, FastAPI, Kubernetes, Terraform, and operational constraints in deployment design.",
+      "Multiple Raspberry Pi deployments with local-first, low-latency optimization patterns.",
   },
   {
     field: "Full-Stack AI Product Engineer",
     fitScore: 7,
     reason:
-      "Delivered user-facing products with Next.js, admin workflows, and backend data integrations tied to measurable outcomes.",
-  },
-  {
-    field: "Data Scientist (Tabular ML)",
-    fitScore: 6,
-    reason:
-      "Demonstrated capability in structured-data modeling with Santander prediction and explainability workflows.",
-  },
-  {
-    field: "Embedded / Digital Systems Engineer",
-    fitScore: 6,
-    reason:
-      "Solid CE background with FPGA, Verilog, and processor design, but primary specialization remains AI/CV systems.",
-  },
-  {
-    field: "General Backend Software Engineer",
-    fitScore: 5,
-    reason:
-      "Competent backend delivery, though strongest differentiation comes from AI/vision systems specialization.",
+      "Built user-facing products with Next.js and robust backend integrations, with measurable delivery outcomes.",
   },
 ];

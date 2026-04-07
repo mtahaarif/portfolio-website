@@ -9,7 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      colors: {
+        cinematic: {
+          bg: 'var(--bg-primary)',
+          bgSecondary: 'var(--bg-secondary)',
+          bgTertiary: 'var(--bg-tertiary)',
+          surface: 'var(--surface)',
+          text: 'var(--text-primary)',
+          muted: 'var(--text-muted)',
+          gold: 'var(--gold-accent)',
+          bronze: 'var(--bronze-accent)',
+          bronzeDeep: 'var(--bronze-deep)',
+        },
+      },
+      boxShadow: {
+        cinematic: '0 16px 48px rgba(8, 6, 4, 0.52)',
+        goldGlow: '0 0 26px rgba(196, 139, 83, 0.24)',
       },
       backdropBlur: {
         xs: '2px',
