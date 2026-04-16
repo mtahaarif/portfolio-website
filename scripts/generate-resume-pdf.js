@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const PDFDocument = require("pdfkit");
 
-const OUTPUT_RELATIVE_PATH = path.join("public", "Resume.pdf");
+const OUTPUT_RELATIVE_PATH = path.join("public", "Muhammad_Taha_Resume.pdf");
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -213,36 +213,44 @@ function createWriter(doc) {
 function buildResumeContent() {
   return {
     name: "MUHAMMAD TAHA",
-    headline:
-      "AI/ML Engineer | Computer Vision | Multimodal AI | ML Systems | PyTorch · OpenCV · LLMs · Edge AI | NUST'26",
+    headline: "AI Engineer | Computer Vision & Embedded Systems Specialist",
     contactLine:
-      "Islamabad, Pakistan | +92 317 5434059 | ch.tahaarif2005@gmail.com | linkedin.com/in/muhammad-taha-21a163256 | github.com/mtahaarif",
+      "Islamabad, Pakistan | +92 317 5434059 | ch.tahaarif2005@gmail.com | LinkedIn: [LinkedIn Profile URL]",
     summary:
-      "Computer Engineering graduate (NUST) specializing in Computer Vision, Multimodal AI, and ML Systems. Built and deployed real-time face anti-spoofing, document verification, and signature forgery detection pipelines during internship at TruID Technologies. Delivered SERENITY (Final Year Project), a local-first multimodal assistant integrating FER, SER, Whisper Tiny, RAG, quantized LLM inference, and persistent conversation memory for real-time therapeutic interaction. Built MedTraceAI for streaming clinical risk prediction with Kafka, FastAPI, Kubernetes, and Terraform. Combines strong AI modeling depth with production engineering, edge deployment, and full-stack execution.",
+      "Final-year Computer Engineering student with a comprehensive portfolio bridging Generative AI, Computer Vision, System Software, and Embedded Hardware. Demonstrated expertise in fine-tuning Large Language Models (LLMs) with RAG, designing hybrid deep neural networks for signal processing, and engineering processor-less hardware solutions on FPGA. Proven track record of delivering end-to-end complex systems, from custom digital logic design to deploying real-time AI inference pipelines.",
     skills: [
+      {
+        label: "Generative AI & NLP:",
+        value:
+          "LLMs (LLaMA-3), RAG (Retrieval-Augmented Generation), LoRA fine-tuning, LangChain, Transformers (BERT), prompt engineering, Hugging Face.",
+      },
       {
         label: "Computer Vision:",
         value:
-          "OpenCV, MediaPipe, Face Anti-Spoofing, Document Verification, Signature Forgery Detection, Pose Estimation, 3D Reconstruction, Hough Transform, SIFT/ORB/SURF.",
+          "Micro-Expression Analysis, face anti-spoofing, optical flow, 3D-CNNs, lane detection, MediaPipe, OpenCV, Fourier transforms, YOLO.",
       },
       {
-        label: "Deep Learning & Multimodal AI:",
+        label: "Software Engineering:",
         value:
-          "PyTorch, TensorFlow Lite, CNN, BiLSTM, Attention, LSTM, Temporal Fusion Transformer, Whisper Tiny, Qwen2.5, RAG, FAISS, SHAP, XGBoost, LightGBM.",
+          "C++ (Qt, SFML, console graphics), Java (Swing, multithreading), Python, OOP, data structures (Trie), algorithms, design patterns.",
       },
       {
-        label: "ML Systems & Backend:",
+        label: "Networking & Systems:",
+        value: "IPv6 design, OSPF, VLANs, router-on-a-stick, Linux, Cisco Packet Tracer, OS scheduling.",
+      },
+      {
+        label: "Hardware & IoT:",
         value:
-          "FastAPI, Kafka, Kubernetes, Terraform, SQLite, SQLAlchemy, Flask, REST APIs, Git, Linux.",
+          "FPGA (Verilog), ESP32, Raspberry Pi, Arduino, digital logic design, custom processor architecture, sensors (LiDAR, PIR).",
       },
       {
-        label: "Programming & Full-Stack:",
-        value: "Python, TypeScript, C++, Java, SQL, Next.js 14, React, MySQL, JWT, Tailwind CSS.",
-      },
-      {
-        label: "Hardware & Embedded:",
+        label: "Signal Processing:",
         value:
-          "Raspberry Pi 5, FPGA (Xilinx), Verilog HDL, ESP32, Arduino, Digital Logic Design, Custom ISA/Processor Design.",
+          "Librosa, MFCCs, spectrogram analysis, speech emotion recognition, CNN-1D, BiLSTM.",
+      },
+      {
+        label: "Tools & DevOps:",
+        value: "Docker, Git, SQL, Flask, Xilinx Vivado, Jupyter Notebooks, VS Code.",
       },
     ],
     experience: [
@@ -253,97 +261,103 @@ function buildResumeContent() {
         start: "Jul 2025",
         end: "Aug 2025",
         bullets: [
-          "Engineered face anti-spoofing pipelines for liveness detection across live-user, screen replay, and paper attack scenarios.",
-          "Developed texture-based document verification models to classify original versus photocopied identity cards.",
-          "Designed signature forgery detection models and optimized inference latency for real-time deployment.",
-          "Integrated CV pipelines into production-oriented identity-security workflows.",
-        ],
-      },
-      {
-        role: "Freelance Full-Stack Engineer",
-        company: "Self-Employed",
-        location: "Remote",
-        start: "Jan 2026",
-        end: "Present",
-        bullets: [
-          "Built a custom headless CMS for a dental practice and migrated a legacy platform to Next.js with real-time MySQL synchronization.",
-          "Developed admin dashboard with drag-and-drop workflows, optimistic updates, and hybrid Vercel Blob + MySQL storage.",
-          "Reduced content update turnaround by 90% (30+ minutes to under 2 minutes).",
-          "Achieved sub-100kB initial load using SSR, caching, and AVIF/WebP optimization.",
+          "Engineered face anti-spoofing algorithms to detect liveness and differentiate between real users and screen/paper attacks.",
+          "Developed a document verification system using texture analysis to classify identity cards as physical originals vs scanned photocopies.",
+          "Designed and trained signature forgery detection models to classify genuine vs forged signatures for banking applications.",
+          "Optimized computer vision pipelines for real-time inference and collaborated with engineering to integrate models into the core product.",
         ],
       },
     ],
     projects: [
       {
-        title: "SERENITY (Final Year Project): Smart Emotion Recognition and Neural Intervention",
+        title: "SERENITY: Smart Emotion Recognition & Neural Intervention (Final Year Project)",
         bullets: [
-          "Architected multimodal interaction loop combining facial emotion recognition (TFLite), speech emotion recognition (TFLite), Whisper Tiny transcription, and quantized Qwen2.5 response generation.",
-          "Implemented RAG retrieval with FAISS and persistent context memory using SQLite + SQLAlchemy for personalized, context-aware responses.",
-          "Built FastAPI backend with async orchestration, timeout guards, and graceful fallbacks to stabilize real-time inference workflows.",
-          "Optimized for constrained hardware and designed architecture for hybrid edge-cloud offload evolution.",
+          "Built a multimodal system combining micro-expression recognition (CV) and LLMs (NLP) to detect suppressed emotions and provide empathetic counseling.",
+          "Fine-tuned LLaMA-3 (8B) using LoRA on psychological datasets; implemented RAG grounded in verified CBT clinical guidelines.",
+          "Engineered a vision pipeline using optical flow and 3D-CNNs to detect rapid facial micro-expressions (<500ms) using SAMM and CASME II datasets.",
+          "Implemented real-time prompt context updates driven by detected non-verbal cues.",
         ],
       },
       {
-        title: "MedTraceAI: Real-Time Clinical Deterioration Prediction",
+        title: "Robust Speech Emotion Recognition via Hybrid Deep Neural Networks",
         bullets: [
-          "Developed streaming clinical prediction platform ingesting vitals, labs, medications, and ADT events for low-latency bedside risk scoring.",
-          "Implemented LSTM and Temporal Fusion Transformer with multimodal feature fusion, calibration monitoring, and SHAP explainability.",
-          "Deployed production architecture with Kafka, FastAPI, Kubernetes, and Terraform plus clinician-facing operational dashboards.",
+          "Designed a CNN-BiLSTM-Attention network to capture spectral (CNN) and temporal (LSTM) dynamics for speech emotion recognition.",
+          "Aggregated a 50,000+ sample super-corpus from 9 datasets (RAVDESS, CREMA-D, IEMOCAP) to improve in-the-wild generalization.",
+          "Achieved 78.41% test accuracy on unseen data by mitigating channel overfitting.",
         ],
       },
       {
-        title: "Full-Stack Dental Practice Platform and Custom Headless CMS",
+        title: "Lung & Colon Cancer Classification (Medical AI)",
         bullets: [
-          "Architected Next.js 14 + TypeScript + MySQL platform with custom admin dashboard and real-time content operations.",
-          "Implemented hybrid storage with Vercel Blob and Git-backed assets to support scalable media + content workflows.",
-          "Reduced update cycle by 90% and delivered sub-100kB initial load through SSR and caching strategies.",
+          "Developed a CNN for histopathology image classification into 5 categories; achieved 98.6% validation accuracy via architectural tuning (dropout, max-pooling).",
         ],
       },
       {
-        title: "Human Pose Estimation and Classification",
+        title: "Real-time Image Analysis for Self-Driving Capabilities",
         bullets: [
-          "Built and compared two pipelines on MPII: MediaPipe keypoint extraction versus from-scratch classical CV using contours, skeletonization, and geometric heuristics.",
-          "Engineered joint-angle features and trained SVM/Random Forest classifiers with quantitative evaluation (PCKh@0.5, skeleton completeness, symmetry).",
+          "Built real-time lane detection and obstacle recognition using OpenCV (edge detection / Hough transform).",
+          "Implemented decision logic to compute steering vectors based on color-coded obstacles in video streams.",
         ],
       },
       {
-        title: "3D Environment Reconstruction from Multi-View Images",
+        title: "White Blood Cell Analysis & Classification (DIP)",
         bullets: [
-          "Developed full multi-view reconstruction pipeline using SIFT/ORB/SURF correspondences, epipolar geometry, camera pose estimation, and stereo triangulation.",
-          "Generated and refined sparse/dense point clouds for robotics, AR/VR, and spatial scene understanding use cases.",
+          "Implemented sharpening using Fourier transforms and Butterworth high-pass filters on microscopic cell images.",
+          "Extracted LBP texture features and Hough transform shape features; achieved 66% test accuracy across 5 cell types.",
         ],
       },
       {
-        title: "Real-Time Image Analysis for Self-Driving Capabilities",
+        title: "Audio Classification using Neural Networks",
         bullets: [
-          "Built edge vision system on Raspberry Pi 5 for lane detection, obstacle segmentation, and directional decision output.",
-          "Optimized pipeline using ROI selection, downsampling, adaptive thresholding, edge detection, and Hough transforms for real-time performance.",
+          "Extracted MFCCs, ZCR, and energy features from the MUSAN dataset using Librosa.",
+          "Trained an MLP (94% accuracy) to classify speech/music/noise and deployed via a Flask web interface.",
         ],
       },
       {
-        title: "Lung and Colon Cancer Classification",
+        title: "Comprehensive OS Scheduler & Disk Simulator",
         bullets: [
-          "Developed CNN-based histopathology classifier for 5 cancer classes and achieved 98.6% validation accuracy through architectural tuning.",
+          "Built a Java application simulating CPU scheduling (Round Robin, EDF) and disk scheduling (SCAN, C-SCAN) with Gantt chart visualization.",
+          "Used SwingWorker for concurrent simulation without blocking the UI.",
         ],
       },
       {
-        title: "Santander Customer Transaction Prediction",
+        title: "Search Engine Desktop Application (Data Structures)",
         bullets: [
-          "Built tabular ML pipeline with feature engineering and model benchmarking across Logistic Regression, Random Forest, XGBoost, and LightGBM.",
-          "Applied SHAP and permutation importance for interpretable prediction analysis on high-dimensional financial data.",
+          "Developed a file search engine using a Trie (prefix tree) for optimized O(L) lookups and Boolean queries (AND/OR).",
+          "Built a Qt (C++) GUI to parse directories, index terms, and execute queries.",
         ],
       },
       {
-        title: "FPGA Snake Game with Hardware-Implemented Ghost AI",
+        title: "IPv6 WAN Design & Inter-VLAN Routing (Computer Networks)",
         bullets: [
-          "Engineered processor-less game engine on Xilinx FPGA using Verilog HDL with VGA output at 640x480 @ 60Hz.",
-          "Implemented autonomous ghost-tracking AI directly in hardware using Manhattan distance minimization logic.",
+          "Designed a scalable IPv6 WAN in Cisco Packet Tracer and implemented router-on-a-stick for inter-VLAN routing.",
+          "Configured OSPFv3 dynamic routing and VLAN segmentation across Cisco 2911 routers and 2960 switches.",
         ],
       },
       {
-        title: "Custom 16-bit Harvard-Architecture Processor",
+        title: "FPGA Implementation of Advanced Snake Game with AI",
         bullets: [
-          "Designed a complete 16-bit CPU in Verilog with custom ISA, control unit, ALU, datapath, and register file.",
+          "Implemented a processor-less game engine on Xilinx FPGA using Verilog HDL and VGA output (640x480 @ 60Hz).",
+          "Built hardware " +
+            "AI logic using Manhattan-distance minimization to autonomously track the player.",
+        ],
+      },
+      {
+        title: "Custom Harvard-Architecture Processor",
+        bullets: [
+          "Designed a 16-bit processor in Verilog, including custom ISA, control unit, datapath, and register file.",
+        ],
+      },
+      {
+        title: "Autonomous Robo Cop (Security & IoT)",
+        bullets: [
+          "Built an ESP32-based security vehicle integrating PIR motion sensors for intruder detection and IR sensors for automated fire extinguishing.",
+        ],
+      },
+      {
+        title: "Remote Weather Detection IoT Car",
+        bullets: [
+          "Built a remote-controlled rover using ESP32/Arduino and LoRaWAN to transmit temperature/humidity telemetry to a web dashboard.",
         ],
       },
     ],
@@ -381,15 +395,14 @@ function buildResumeContent() {
       location: "Islamabad, Pakistan",
       start: "2022",
       end: "2026",
-      details:
-        "Relevant Coursework: Data Structures, Operating Systems, Computer Networks, Computer Architecture, Digital Image Processing, DSP, AI, Machine Learning, Computer Vision, Software Engineering, Database Engineering.",
+      details: "CGPA: 3.11/4.0",
     },
     certifications: [
-      "Deep Learning Specialization — DeepLearning.AI (Dec 2025)",
-      "Machine Learning Specialization — Stanford Online (Jul 2025)",
-      "AI for Everyone — DeepLearning.AI (Jul 2024)",
-      "Introduction to Front-End Development — Meta (Oct 2023)",
-      "CS50: Introduction to Programming with Python — Harvard University (Sep 2023)",
+      "Deep Learning Specialization (DeepLearning.AI)",
+      "Machine Learning Specialization (Stanford Online)",
+      "AI for Everyone (DeepLearning.AI)",
+      "Meta Introduction to Front-End Development (Meta/Coursera)",
+      "CS50: Introduction to Programming with Python (Harvard University)",
     ],
   };
 }

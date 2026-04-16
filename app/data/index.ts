@@ -4,4 +4,3 @@ export { skillCategories } from './skills';
 export { experienceRoles, additionalActivities } from './experience';
 export { featuredProjects, secondaryProjects } from './projects';
 export { certifications } from './certifications';
-export { linkedinHeadline, topSkills, specializationRanking } from './career-fit';

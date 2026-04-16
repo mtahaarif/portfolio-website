@@ -1,17 +1,7 @@
 {
-  "name": "Muhammad Taha | AI/ML Engineer Portfolio",
-  "short_name": "Taha Portfolio",
-  "description": "Portfolio of Muhammad Taha, AI/ML Engineer focused on computer vision, multimodal AI, and production ML systems.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#020817",
-  "theme_color": "#0a1628",
-  "icons": [
-    {
-      "src": "/profile.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "any"
-    }
-  ]
+  "name": "Muhammad Taha",
+  "title": "AI Engineer & Computer Vision Specialist",
+  "email": "ch.tahaarif2005@gmail.com",
+  "phone": "+92 317 5434059",
+  "location": "Islamabad, Pakistan"
 }
