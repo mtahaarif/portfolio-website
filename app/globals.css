@@ -140,6 +140,19 @@ body {
     color: rgba(255, 236, 176, 0.96);
   }
 
+  .cert-card {
+    border: 1px solid rgba(250, 204, 21, 0.34);
+    background: linear-gradient(160deg, rgba(35, 27, 20, 0.82), rgba(23, 19, 15, 0.8));
+  }
+
+  .cert-card:hover {
+    border-color: rgba(250, 204, 21, 0.75);
+    box-shadow:
+      0 0 0 1px rgba(255, 231, 151, 0.36),
+      0 0 34px rgba(250, 204, 21, 0.4),
+      0 12px 36px rgba(0, 0, 0, 0.52);
+  }
+
   /* Social Icons */
   .social-icon {
     @apply w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300;

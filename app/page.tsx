@@ -47,8 +47,159 @@ function resolveIcon(iconKey: string): LucideIcon {
   return iconByKey[iconKey as IconKey] ?? Brain;
 }
 
+function toProjectId(title: string): string {
+  return `project-${title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')}`;
+}
+
+const projectGithubOverrides: Record<string, string> = {
+  'SERENITY: Smart Emotion Recognition & Neural Intervention':
+    'https://github.com/mtahaarif/Smart-Emotion-Recognition-and-Neural-Intervention-Technology-SERENITY-',
+  'Biometrics Anti-Spoofing, Identity & Signature Verification':
+    'https://github.com/mtahaarif/Biometrics-Anti-Spoofing-Identity-Signature-Verification',
+  'Audio Classification Using Neural Networks': 'https://github.com/mtahaarif/Audio-Classification-System',
+  'Robust Speech Emotion Recognition via Hybrid Deep Neural Networks':
+    'https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-',
+  'Santander Customer Transaction Prediction':
+    'https://github.com/mtahaarif/Santander-Customer-Transaction-Prediction',
+  'Industrial Database Management System':
+    'https://github.com/mtahaarif/Industrial-Database-Management-System',
+  'Dental Practice Platform & Custom Headless CMS': 'https://github.com/mtahaarif/hainescitydental',
+  'Remote Weather Detection IoT Car': 'https://github.com/mtahaarif/Remote-Weather-Detection-IoT-Car',
+  'Smart Car Parking Fare Generator': 'https://github.com/mtahaarif/Smart-Car-Parking-Fare-Generator',
+  '"Gameboy" Multi-Game Launcher': 'https://github.com/mtahaarif/-Gameboy-Multi-Game-Launcher',
+  'Comprehensive OS Scheduler & Disk Simulator':
+    'https://github.com/mtahaarif/Comprehensive-OS-Scheduler-Disk-Simulator',
+  'Search Engine Desktop Application (Data Structures)':
+    'https://github.com/mtahaarif/Search-Engine-Desktop-Application',
+  'Real-Time Image Analysis for Self-Driving Capabilities':
+    'https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities',
+  'FPGA Implementation of Advanced Snake Game with AI':
+    'https://github.com/mtahaarif/FPGA-Implementation-of-Advanced-Snake-Game-with-AI',
+  'Custom 16-bit Instruction Set Processor': 'https://github.com/mtahaarif/Custom-16-Bit-Processor',
+  'Object-Oriented Airport Traffic Simulation':
+    'https://github.com/mtahaarif/Object-Oriented-Airport-Traffic-Simulation',
+};
+
+const seoProjectShortcuts = [
+  {
+    label: 'Multimodal AI Assistant',
+    title: 'SERENITY: Smart Emotion Recognition & Neural Intervention',
+  },
+  {
+    label: 'Clinical AI Prediction',
+    title: 'MedTraceAI: Real-Time Clinical Deterioration Prediction',
+  },
+  {
+    label: 'Computer Vision Security',
+    title: 'Biometrics Anti-Spoofing, Identity & Signature Verification',
+  },
+  {
+    label: 'Audio Classification ML',
+    title: 'Audio Classification Using Neural Networks',
+  },
+  {
+    label: 'Full-Stack CMS Platform',
+    title: 'Dental Practice Platform & Custom Headless CMS',
+  },
+  {
+    label: 'FPGA Game AI',
+    title: 'FPGA Implementation of Advanced Snake Game with AI',
+  },
+];
+
+function normalizeProjectCategories(data: PortfolioCMSData): PortfolioCMSData['projectCategories'] {
+  return data.projectCategories.map((category) => {
+    const projectsWithLinks = category.projects.map((project) => ({
+      ...project,
+      github: projectGithubOverrides[project.title] ?? project.github,
+    }));
+
+    if (category.id !== 'ai-computer-vision') {
+      return { ...category, projects: projectsWithLinks };
+    }
+
+    const serenity = projectsWithLinks.find((project) =>
+      project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
+    );
+    const rest = projectsWithLinks.filter(
+      (project) => !project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
+    );
+
+    return {
+      ...category,
+      projects: serenity ? [serenity, ...rest] : projectsWithLinks,
+    };
+  });
+}
+
+function mergeCertifications(base: PortfolioCMSData['certifications'], incoming: PortfolioCMSData['certifications']) {
+  const map = new Map<string, PortfolioCMSData['certifications'][number]>();
+
+  for (const certification of base) {
+    map.set(certification.title, certification);
+  }
+
+  for (const certification of incoming) {
+    map.set(certification.title, certification);
+  }
+
+  return Array.from(map.values());
+}
+
+function mergeProjectCategories(
+  base: PortfolioCMSData['projectCategories'],
+  incoming: PortfolioCMSData['projectCategories']
+): PortfolioCMSData['projectCategories'] {
+  if (incoming.length === 0) {
+    return base;
+  }
+
+  const incomingById = new Map(incoming.map((category) => [category.id, category]));
+  const usedIncomingIds = new Set<string>();
+
+  const merged = base.map((baseCategory) => {
+    const incomingCategory = incomingById.get(baseCategory.id);
+    if (!incomingCategory) {
+      return baseCategory;
+    }
+
+    usedIncomingIds.add(baseCategory.id);
+
+    const incomingByTitle = new Map(incomingCategory.projects.map((project) => [project.title, project]));
+    const baseTitles = new Set(baseCategory.projects.map((project) => project.title));
+
+    const mergedProjects = baseCategory.projects.map((baseProject) => {
+      const incomingProject = incomingByTitle.get(baseProject.title);
+      return incomingProject ? { ...baseProject, ...incomingProject } : baseProject;
+    });
+
+    for (const incomingProject of incomingCategory.projects) {
+      if (!baseTitles.has(incomingProject.title)) {
+        mergedProjects.push(incomingProject);
+      }
+    }
+
+    return {
+      ...baseCategory,
+      ...incomingCategory,
+      projects: mergedProjects,
+    };
+  });
+
+  for (const incomingCategory of incoming) {
+    if (!usedIncomingIds.has(incomingCategory.id)) {
+      merged.push(incomingCategory);
+    }
+  }
+
+  return merged;
+}
+
 function mergeCmsData(base: PortfolioCMSData, incoming: Partial<PortfolioCMSData>): PortfolioCMSData {
-  return {
+  const merged: PortfolioCMSData = {
     profile: { ...base.profile, ...(incoming.profile ?? {}) },
     proofPoints:
       Array.isArray(incoming.proofPoints) && incoming.proofPoints.length > 0
@@ -60,16 +211,21 @@ function mergeCmsData(base: PortfolioCMSData, incoming: Partial<PortfolioCMSData
         : base.experiences,
     projectCategories:
       Array.isArray(incoming.projectCategories) && incoming.projectCategories.length > 0
-        ? incoming.projectCategories
+        ? mergeProjectCategories(base.projectCategories, incoming.projectCategories)
         : base.projectCategories,
     skillGroups:
       Array.isArray(incoming.skillGroups) && incoming.skillGroups.length > 0
         ? incoming.skillGroups
         : base.skillGroups,
-    certifications:
-      Array.isArray(incoming.certifications) && incoming.certifications.length > 0
-        ? incoming.certifications
-        : base.certifications,
+    certifications: mergeCertifications(
+      base.certifications,
+      Array.isArray(incoming.certifications) ? incoming.certifications : []
+    ),
+  };
+
+  return {
+    ...merged,
+    projectCategories: normalizeProjectCategories(merged),
   };
 }
 
@@ -77,6 +233,7 @@ function mergeCmsData(base: PortfolioCMSData, incoming: Partial<PortfolioCMSData
 export default function Home() {
   const [cmsData, setCmsData] = useState<PortfolioCMSData>(cmsDefaults);
   const [cmsStatus, setCmsStatus] = useState<'loading' | 'ready' | 'fallback'>('loading');
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [particleStyles, setParticleStyles] = useState<
@@ -156,6 +313,49 @@ export default function Home() {
   }, []);
 
   const { profile, proofPoints, experiences, projectCategories, skillGroups, certifications: certs } = cmsData;
+
+  const flattenedProjects = projectCategories.flatMap((category) =>
+    category.projects.map((project, projectIndex) => ({
+      categoryId: category.id,
+      project,
+      projectIndex,
+      uniqueKey: `${category.id}-${projectIndex}-${project.title}`,
+      projectId: toProjectId(project.title),
+    }))
+  );
+
+  const totalProjects = flattenedProjects.length;
+  const visibleProjectKeys = showAllProjects
+    ? null
+    : new Set(flattenedProjects.slice(0, 5).map((entry) => entry.uniqueKey));
+
+  const availableProjectShortcuts = seoProjectShortcuts
+    .map((shortcut) => {
+      const match = flattenedProjects.find((entry) => entry.project.title === shortcut.title);
+      if (!match) {
+        return null;
+      }
+      return {
+        ...shortcut,
+        projectId: match.projectId,
+      };
+    })
+    .filter((value): value is { label: string; title: string; projectId: string } => value !== null);
+
+  const jumpToProject = (projectId: string) => {
+    const scroll = () => {
+      const target = document.getElementById(projectId);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    if (showAllProjects) {
+      scroll();
+      return;
+    }
+
+    setShowAllProjects(true);
+    window.setTimeout(scroll, 220);
+  };
 
   return (
     <div className="liquid-bg min-h-screen relative">
@@ -439,9 +639,36 @@ export default function Home() {
               subtitle="Complete project portfolio grouped into AI & Computer Vision, Software Engineering, and Hardware & FPGA"
             />
 
+            {availableProjectShortcuts.length > 0 && (
+              <div className="flex flex-wrap gap-3 justify-center mb-8">
+                {availableProjectShortcuts.map((shortcut) => (
+                  <button
+                    key={shortcut.label}
+                    onClick={() => jumpToProject(shortcut.projectId)}
+                    className="skill-tag text-xs md:text-sm"
+                  >
+                    {shortcut.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div className="space-y-12">
               {projectCategories.map((category) => {
                 const CategoryIcon = resolveIcon(category.iconKey);
+                const visibleProjects = category.projects
+                  .map((project, projectIndex) => ({
+                    project,
+                    projectIndex,
+                    uniqueKey: `${category.id}-${projectIndex}-${project.title}`,
+                    projectId: toProjectId(project.title),
+                  }))
+                  .filter((entry) => (visibleProjectKeys ? visibleProjectKeys.has(entry.uniqueKey) : true));
+
+                if (visibleProjects.length === 0) {
+                  return null;
+                }
+
                 return (
                   <div key={category.id}>
                     <div className="glass-card rounded-2xl p-5 mb-5">
@@ -455,14 +682,37 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      {category.projects.map((project, projectIndex) => (
-                        <ProjectCard key={project.title} project={project} index={projectIndex} />
+                      {visibleProjects.map((entry) => (
+                        <ProjectCard
+                          key={entry.uniqueKey}
+                          project={entry.project}
+                          index={entry.projectIndex}
+                          projectId={entry.projectId}
+                        />
                       ))}
                     </div>
                   </div>
                 );
               })}
             </div>
+
+            {totalProjects > 5 && (
+              <div className="mt-10 text-center">
+                <button
+                  onClick={() => {
+                    if (showAllProjects) {
+                      setShowAllProjects(false);
+                      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      return;
+                    }
+                    setShowAllProjects(true);
+                  }}
+                  className="btn-secondary text-white inline-flex items-center gap-2"
+                >
+                  {showAllProjects ? 'Show Less Projects' : `Show More Projects (${totalProjects - 5} more)`}
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
@@ -501,7 +751,7 @@ export default function Home() {
               })}
             </div>
 
-            {/* Certifications — compact inline */}
+            {/* Certifications */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -511,19 +761,27 @@ export default function Home() {
               <h3 className="text-base font-semibold text-white/80 mb-4 flex items-center gap-2">
                 <Award size={16} className="text-amber-300" /> Certifications
               </h3>
-              <div className="flex flex-wrap gap-3">
-                {certs.map((certification) => (
-                  <a
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {certs.map((certification, index) => (
+                  <motion.a
                     key={certification.title}
                     href={certification.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/70 hover:text-amber-200 transition-colors flex items-center gap-1.5"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="glass-card-hover cert-card rounded-xl p-4 group"
                   >
-                    {certification.title} <span className="text-white/40">·</span>{' '}
-                    <span className="text-white/60">{certification.issuer}</span>
-                    <ExternalLink size={11} className="text-white/40" />
-                  </a>
+                    <p className="text-white font-semibold leading-snug group-hover:text-amber-100 transition-colors">
+                      {certification.title}
+                    </p>
+                    <p className="text-white/65 text-sm mt-1 flex items-center gap-1.5">
+                      {certification.issuer}
+                      <ExternalLink size={12} className="text-white/45" />
+                    </p>
+                  </motion.a>
                 ))}
               </div>
             </motion.div>
@@ -662,9 +920,10 @@ function SectionHeading({ title, subtitle }: { title: string; subtitle?: string 
   );
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, projectId }: { project: Project; index: number; projectId: string }) {
   return (
     <motion.a
+      id={projectId}
       href={project.github}
       target="_blank"
       rel="noopener noreferrer"

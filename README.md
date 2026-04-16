@@ -1,56 +1,67 @@
-# Portfolio Website
+# Muhammad Taha Portfolio Website
 
-This project is a portfolio website designed to showcase personal projects, skills, and experiences. It serves as a digital resume and a platform to demonstrate web development capabilities.
+Modern Next.js portfolio site with:
+1. Golden cinematic theme and animated background particles
+2. CMS-backed content management (Vercel Postgres)
+3. ATS/SEO-oriented project content and structured sections
 
-## Project Structure
+## Tech Stack
 
+1. Next.js 14 (App Router)
+2. TypeScript
+3. Tailwind CSS
+4. Framer Motion
+5. Vercel Postgres client (`@vercel/postgres`)
+
+## Key Routes
+
+1. `/` - Main portfolio website
+2. `/cms` - JSON CMS admin editor
+3. `/api/cms/content` - CMS content API (GET/PUT)
+
+## Local Setup
+
+1. Install dependencies
+
+```bash
+npm install
 ```
-portfolio-website
-├── src
-│   ├── index.html          # Main HTML document
-│   ├── styles              # Directory for CSS files
-│   │   └── main.css        # Main stylesheet
-│   ├── scripts             # Directory for JavaScript files
-│   │   └── main.js         # Main JavaScript file
-│   └── components          # Directory for reusable components
-│       └── navbar.html     # Navigation bar component
-├── package.json            # NPM configuration file
-└── README.md               # Project documentation
+
+2. Create `.env.local` with required environment variables
+
+```env
+POSTGRES_URL=...
+POSTGRES_PRISMA_URL=...
+CMS_ADMIN_TOKEN=your_secret_token_optional
 ```
 
-## Getting Started
+3. Start development server
 
-To get a local copy up and running, follow these simple steps:
+```bash
+npm run dev
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/portfolio-website.git
-   ```
+4. Open the app
 
-2. **Navigate to the project directory**
-   ```bash
-   cd portfolio-website
-   ```
+```text
+http://localhost:3000
+http://localhost:3000/cms
+```
 
-3. **Install dependencies**
-   If you have any dependencies listed in `package.json`, run:
-   ```bash
-   npm install
-   ```
+## CMS Workflow
 
-4. **Open the project**
-   Open `src/index.html` in your web browser to view the portfolio website.
+1. Open `/cms`
+2. Paste `CMS_ADMIN_TOKEN` if token protection is enabled
+3. Edit JSON content
+4. Click `Save to DB`
+5. Reload `/` to see updates
 
-## Features
+The API creates `cms_content` table automatically and seeds default content if empty.
 
-- Responsive design
-- Interactive navigation bar
-- Dynamic content updates using JavaScript
+## Scripts
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+1. `npm run dev` - Start development server
+2. `npm run build` - Production build + type/lint checks
+3. `npm run start` - Run production server
+4. `npm run lint` - Lint checks
+5. `npm run resume:pdf` - Generate resume PDF artifact

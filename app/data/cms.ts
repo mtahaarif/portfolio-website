@@ -64,17 +64,6 @@ export interface PortfolioCMSData {
 
 const aiAndComputerVisionProjects: Project[] = [
   {
-    tag: 'Clinical AI',
-    title: 'MedTraceAI: Real-Time Clinical Deterioration Prediction',
-    problem: 'Clinical deterioration indicators are often fragmented across EHR streams, delaying escalation and intervention.',
-    approach:
-      'Built a multimodal temporal modeling platform over vitals, labs, medications, ADT events, and optional clinical notes with strict patient-time correctness. Compared tabular baselines against LSTM and Temporal Fusion Transformer while adding explainability and audit tracing.',
-    result:
-      'Delivered low-latency bedside risk scoring with calibration, missingness, and drift monitoring across units using Kafka, FastAPI, Kubernetes, and Terraform.',
-    tech: ['PyTorch', 'LSTM', 'Temporal Fusion Transformer', 'SHAP', 'Kafka', 'FastAPI', 'Kubernetes', 'Terraform'],
-    github: 'https://github.com/mtahaarif',
-  },
-  {
     tag: 'Multimodal AI',
     title: 'SERENITY: Smart Emotion Recognition & Neural Intervention',
     problem:
@@ -84,7 +73,30 @@ const aiAndComputerVisionProjects: Project[] = [
     result:
       'Enabled real-time multimodal distress monitoring with clinician oversight dashboards and persistent edge deployment through Nginx and systemd.',
     tech: ['FastAPI', 'React (Vite)', 'TFLite', 'LLMs', 'SQLite WAL', 'NDJSON', 'Raspberry Pi 5', 'XNNPACK'],
-    github: 'https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-',
+    github: 'https://github.com/mtahaarif/Smart-Emotion-Recognition-and-Neural-Intervention-Technology-SERENITY-',
+  },
+  {
+    tag: 'Biometrics Security',
+    title: 'Biometrics Anti-Spoofing, Identity & Signature Verification',
+    problem:
+      'Identity platforms require robust anti-spoofing and forgery detection to prevent impersonation and document fraud.',
+    approach:
+      'Built computer vision pipelines for face liveness detection, identity document authenticity checks, hand spoof detection, and signature verification using real-world attack scenarios.',
+    result:
+      'Produced a unified biometric security workflow that improves fraud detection coverage across multiple authentication modalities.',
+    tech: ['Computer Vision', 'Anti-Spoofing', 'Liveness Detection', 'Document Verification', 'Signature Verification'],
+    github: 'https://github.com/mtahaarif/Biometrics-Anti-Spoofing-Identity-Signature-Verification',
+  },
+  {
+    tag: 'Clinical AI',
+    title: 'MedTraceAI: Real-Time Clinical Deterioration Prediction',
+    problem: 'Clinical deterioration indicators are often fragmented across EHR streams, delaying escalation and intervention.',
+    approach:
+      'Built a multimodal temporal modeling platform over vitals, labs, medications, ADT events, and optional clinical notes with strict patient-time correctness. Compared tabular baselines against LSTM and Temporal Fusion Transformer while adding explainability and audit tracing.',
+    result:
+      'Delivered low-latency bedside risk scoring with calibration, missingness, and drift monitoring across units using Kafka, FastAPI, Kubernetes, and Terraform.',
+    tech: ['PyTorch', 'LSTM', 'Temporal Fusion Transformer', 'SHAP', 'Kafka', 'FastAPI', 'Kubernetes', 'Terraform'],
+    github: 'https://github.com/mtahaarif',
   },
   {
     tag: '3D Vision',
@@ -123,6 +135,18 @@ const aiAndComputerVisionProjects: Project[] = [
     github: 'https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities',
   },
   {
+    tag: 'Speech AI',
+    title: 'Robust Speech Emotion Recognition via Hybrid Deep Neural Networks',
+    problem:
+      'Speech emotion classifiers often degrade in real-world noisy conditions and across diverse speakers.',
+    approach:
+      'Engineered a hybrid deep network combining convolutional, recurrent, and attention modules trained on multi-dataset speech corpora for robust emotional inference.',
+    result:
+      'Improved generalization and stability for emotion recognition in practical deployment environments.',
+    tech: ['PyTorch', 'Speech Emotion Recognition', 'CNN-BiLSTM-Attention', 'Audio Features'],
+    github: 'https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-',
+  },
+  {
     tag: 'Audio Intelligence',
     title: 'Audio Classification Using Neural Networks',
     problem: 'Automated acoustic monitoring requires robust classification across speech, music, and environmental noise.',
@@ -131,7 +155,7 @@ const aiAndComputerVisionProjects: Project[] = [
     result:
       'Reached 98.85% training accuracy and 94.35% test accuracy, then deployed inference and spectrogram visualization through a Flask web interface.',
     tech: ['TensorFlow', 'Keras', 'Librosa', 'MATLAB', 'Flask', 'DSP', 'MUSAN Dataset'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Audio-Classification-System',
   },
   {
     tag: 'Medical Imaging',
@@ -163,7 +187,7 @@ const aiAndComputerVisionProjects: Project[] = [
       'Built a full ML pipeline with logistic regression baseline, Random Forest/XGBoost/LightGBM experiments, cross-validation, and hyperparameter tuning for ROC-AUC optimization.',
     result: 'Delivered competitive leaderboard-ready models with SHAP and permutation feature importance for post-hoc interpretability.',
     tech: ['Scikit-learn', 'XGBoost', 'LightGBM', 'SHAP', 'ROC-AUC', 'Feature Selection'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Santander-Customer-Transaction-Prediction',
   },
 ];
 
@@ -187,7 +211,7 @@ const softwareEngineeringProjects: Project[] = [
       'Implemented a custom indexing engine using Trie structures, document metadata objects, and graph-linked document relationships. Added boolean query support, ranking by term frequency, and result caching.',
     result: 'Delivered fast local document retrieval with a Qt-based desktop interface for practical search navigation.',
     tech: ['C++', 'Qt Creator', 'Trie', 'Graph Data Structures', 'Boolean Retrieval'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Search-Engine-Desktop-Application',
   },
   {
     tag: 'Systems Programming',
@@ -197,7 +221,7 @@ const softwareEngineeringProjects: Project[] = [
       'Developed an SFML-based launcher with console buffer manipulation, custom Tetris rotation logic, and Flappy Bird physics simulation.',
     result: 'Created a performant multi-game platform demonstrating algorithmic control, rendering optimization, and gameplay state management.',
     tech: ['C++', 'SFML', 'Console Buffer', 'Game Physics', 'Matrix Algorithms'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/-Gameboy-Multi-Game-Launcher',
   },
   {
     tag: 'Concurrency',
@@ -207,7 +231,7 @@ const softwareEngineeringProjects: Project[] = [
       'Built a Java simulator for Round Robin and EDF CPU scheduling plus SCAN/C-SCAN disk scheduling. Used SwingWorker-based multithreading to keep UI responsive during concurrent simulations.',
     result: 'Produced a full-stack educational simulator with dynamic Gantt chart visualization and deterministic scheduling comparison.',
     tech: ['Java', 'Swing', 'SwingWorker', 'Concurrency', 'Scheduling Algorithms'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Comprehensive-OS-Scheduler-Disk-Simulator',
   },
   {
     tag: 'Database Engineering',
@@ -218,7 +242,7 @@ const softwareEngineeringProjects: Project[] = [
     result:
       'Delivered a scalable database system for operations, maintenance, and production management with secure administrative access.',
     tech: ['SQL', 'Database Design', 'EER Modeling', 'CRUD Systems', 'Admin Dashboards'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Industrial-Database-Management-System',
   },
   {
     tag: 'OOP Simulation',
@@ -229,7 +253,7 @@ const softwareEngineeringProjects: Project[] = [
     result:
       'Improved modularity and maintainability while accurately modeling airport surface traffic task execution and routing behavior.',
     tech: ['Object-Oriented Design', 'Simulation', 'Priority Queues', 'Path Planning', 'Java/C++'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Object-Oriented-Airport-Traffic-Simulation',
   },
   {
     tag: 'Network Engineering',
@@ -262,7 +286,7 @@ const hardwareAndFpgaProjects: Project[] = [
       'Integrated Arduino, ESP32-CAM, DHT22/BH1750 sensors, LoRa telemetry, and motor control for remote vehicle navigation plus wireless weather packet transmission.',
     result: 'Created a mobile IoT station capable of real-time environmental monitoring and web-based remote control.',
     tech: ['ESP32-CAM', 'Arduino', 'LoRa', 'DHT22', 'BH1750', 'L298N', 'IoT'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Remote-Weather-Detection-IoT-Car',
   },
   {
     tag: 'Security IoT',
@@ -282,7 +306,7 @@ const hardwareAndFpgaProjects: Project[] = [
       'Engineered a digital logic pipeline with proximity sensing, asynchronous timing, ripple counters, ALU-style computation, and BCD-to-7-segment display conversion.',
     result: 'Implemented deterministic hardware fare computation tied directly to parking duration intervals and configurable rates.',
     tech: ['Digital Logic', '555 Timer', '7493 Counters', 'ALU Design', 'BCD Display', 'Verilog'],
-    github: 'https://github.com/mtahaarif',
+    github: 'https://github.com/mtahaarif/Smart-Car-Parking-Fare-Generator',
   },
   {
     tag: 'Processor Design',
@@ -413,5 +437,7 @@ export const cmsDefaults: PortfolioCMSData = {
     { title: 'Deep Learning Specialization', issuer: 'DeepLearning.AI', link: 'https://www.coursera.org/account/accomplishments/specialization/108CJVFYUFG4' },
     { title: 'Machine Learning Specialization', issuer: 'Stanford Online', link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/CCNSYYU42C28' },
     { title: 'CS50: Programming with Python', issuer: 'Harvard University', link: 'https://certificates.cs50.io/a31f82a1-78d3-417d-9b38-7b58af74cd4c.pdf?size=letter' },
+    { title: 'AI for Everyone', issuer: 'DeepLearning.AI', link: 'https://www.coursera.org/account/accomplishments/verify/DQRNLTNU8F3D' },
+    { title: 'Introduction to Front-End Development', issuer: 'Meta', link: 'https://www.coursera.org/account/accomplishments/verify/5W3GG5G4JVNY' },
   ],
 };
