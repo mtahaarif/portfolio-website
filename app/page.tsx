@@ -54,85 +54,47 @@ function toProjectId(title: string): string {
     .replace(/\s+/g, '-')}`;
 }
 
-const projectGithubOverrides: Record<string, string> = {
-  'SERENITY: Smart Emotion Recognition & Neural Intervention':
-    'https://github.com/mtahaarif/Smart-Emotion-Recognition-and-Neural-Intervention-Technology-SERENITY-',
-  'Biometrics Anti-Spoofing, Identity & Signature Verification':
-    'https://github.com/mtahaarif/Biometrics-Anti-Spoofing-Identity-Signature-Verification',
-  'Audio Classification Using Neural Networks': 'https://github.com/mtahaarif/Audio-Classification-System',
-  'Robust Speech Emotion Recognition via Hybrid Deep Neural Networks':
-    'https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-',
-  'Santander Customer Transaction Prediction':
-    'https://github.com/mtahaarif/Santander-Customer-Transaction-Prediction',
-  'Industrial Database Management System':
-    'https://github.com/mtahaarif/Industrial-Database-Management-System',
-  'Dental Practice Platform & Custom Headless CMS': 'https://github.com/mtahaarif/hainescitydental',
-  'Remote Weather Detection IoT Car': 'https://github.com/mtahaarif/Remote-Weather-Detection-IoT-Car',
-  'Smart Car Parking Fare Generator': 'https://github.com/mtahaarif/Smart-Car-Parking-Fare-Generator',
-  '"Gameboy" Multi-Game Launcher': 'https://github.com/mtahaarif/-Gameboy-Multi-Game-Launcher',
-  'Comprehensive OS Scheduler & Disk Simulator':
-    'https://github.com/mtahaarif/Comprehensive-OS-Scheduler-Disk-Simulator',
-  'Search Engine Desktop Application (Data Structures)':
-    'https://github.com/mtahaarif/Search-Engine-Desktop-Application',
-  'Real-Time Image Analysis for Self-Driving Capabilities':
-    'https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities',
-  'FPGA Implementation of Advanced Snake Game with AI':
-    'https://github.com/mtahaarif/FPGA-Implementation-of-Advanced-Snake-Game-with-AI',
-  'Custom 16-bit Instruction Set Processor': 'https://github.com/mtahaarif/Custom-16-Bit-Processor',
-  'Object-Oriented Airport Traffic Simulation':
-    'https://github.com/mtahaarif/Object-Oriented-Airport-Traffic-Simulation',
-};
+// GitHub URLs are owned by app/data/cms.ts — the single source of truth.
+// Do not reintroduce a title-keyed override map here: renaming a project
+// silently breaks the link instead of failing loudly.
 
 const seoProjectShortcuts = [
   {
-    label: 'Multimodal AI Assistant',
-    title: 'SERENITY: Smart Emotion Recognition & Neural Intervention',
-  },
-  {
     label: 'Clinical AI Prediction',
-    title: 'MedTraceAI: Real-Time Clinical Deterioration Prediction',
+    title: 'MedTraceAI: Clinical Deterioration Prediction',
   },
   {
-    label: 'Computer Vision Security',
-    title: 'Biometrics Anti-Spoofing, Identity & Signature Verification',
+    label: 'Multimodal Edge AI',
+    title: 'SERENITY: Multimodal Mental-Health AI System',
   },
   {
-    label: 'Audio Classification ML',
-    title: 'Audio Classification Using Neural Networks',
+    label: 'Biometric Anti-Spoofing',
+    title: 'Biometric Anti-Spoofing & Document Fraud Detection',
+  },
+  {
+    label: '3D Reconstruction',
+    title: '3D Environment Reconstruction from Multi-View Images',
   },
   {
     label: 'Full-Stack CMS Platform',
     title: 'Dental Practice Platform & Custom Headless CMS',
   },
   {
-    label: 'FPGA Game AI',
-    title: 'FPGA Implementation of Advanced Snake Game with AI',
+    label: 'FPGA Hardware AI',
+    title: 'FPGA Snake Game with Hardware AI',
   },
 ];
 
+// Project order is authored deliberately in cms.ts (strongest work first),
+// so this pass only guarantees every project carries a resolvable link.
 function normalizeProjectCategories(data: PortfolioCMSData): PortfolioCMSData['projectCategories'] {
-  return data.projectCategories.map((category) => {
-    const projectsWithLinks = category.projects.map((project) => ({
+  return data.projectCategories.map((category) => ({
+    ...category,
+    projects: category.projects.map((project) => ({
       ...project,
-      github: projectGithubOverrides[project.title] ?? project.github,
-    }));
-
-    if (category.id !== 'ai-computer-vision') {
-      return { ...category, projects: projectsWithLinks };
-    }
-
-    const serenity = projectsWithLinks.find((project) =>
-      project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
-    );
-    const rest = projectsWithLinks.filter(
-      (project) => !project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
-    );
-
-    return {
-      ...category,
-      projects: serenity ? [serenity, ...rest] : projectsWithLinks,
-    };
-  });
+      github: project.github?.trim() || 'https://github.com/mtahaarif',
+    })),
+  }));
 }
 
 function mergeCertifications(base: PortfolioCMSData['certifications'], incoming: PortfolioCMSData['certifications']) {
@@ -325,9 +287,14 @@ export default function Home() {
   );
 
   const totalProjects = flattenedProjects.length;
-  const visibleProjectKeys = showAllProjects
-    ? null
-    : new Set(flattenedProjects.slice(0, 5).map((entry) => entry.uniqueKey));
+
+  // Every project is always rendered into the DOM so crawlers and assistive
+  // tech see the full portfolio; "Show more" only toggles visibility. Keys
+  // beyond the first five are the ones collapsed by default.
+  const PREVIEW_COUNT = 5;
+  const previewProjectKeys = new Set(
+    flattenedProjects.slice(0, PREVIEW_COUNT).map((entry) => entry.uniqueKey)
+  );
 
   const availableProjectShortcuts = seoProjectShortcuts
     .map((shortcut) => {
@@ -536,7 +503,7 @@ export default function Home() {
                 <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-amber-500/40 shadow-2xl shadow-amber-500/25">
                   <Image
                     src="/profile.jpg"
-                    alt="Muhammad Taha - AI/ML Engineer"
+                    alt="Muhammad Taha — Full Stack AI Engineer"
                     width={288}
                     height={288}
                     className="object-cover w-full h-full"
@@ -656,21 +623,30 @@ export default function Home() {
             <div className="space-y-12">
               {projectCategories.map((category) => {
                 const CategoryIcon = resolveIcon(category.iconKey);
-                const visibleProjects = category.projects
-                  .map((project, projectIndex) => ({
-                    project,
-                    projectIndex,
-                    uniqueKey: `${category.id}-${projectIndex}-${project.title}`,
-                    projectId: toProjectId(project.title),
-                  }))
-                  .filter((entry) => (visibleProjectKeys ? visibleProjectKeys.has(entry.uniqueKey) : true));
+                const categoryProjects = category.projects.map((project, projectIndex) => ({
+                  project,
+                  projectIndex,
+                  uniqueKey: `${category.id}-${projectIndex}-${project.title}`,
+                  projectId: toProjectId(project.title),
+                }));
 
-                if (visibleProjects.length === 0) {
+                if (categoryProjects.length === 0) {
                   return null;
                 }
 
+                // Whole category is collapsed only when none of its projects
+                // are in the preview set and the user hasn't expanded yet.
+                const categoryInPreview = categoryProjects.some((entry) =>
+                  previewProjectKeys.has(entry.uniqueKey)
+                );
+                const categoryHidden = !showAllProjects && !categoryInPreview;
+
                 return (
-                  <div key={category.id}>
+                  <div
+                    key={category.id}
+                    className={categoryHidden ? 'sr-only' : undefined}
+                    aria-hidden={categoryHidden || undefined}
+                  >
                     <div className="glass-card rounded-2xl p-5 mb-5">
                       <div className="flex items-center gap-3 mb-1.5">
                         <div className={`p-2.5 rounded-xl ${category.iconBg}`}>
@@ -682,14 +658,23 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      {visibleProjects.map((entry) => (
-                        <ProjectCard
-                          key={entry.uniqueKey}
-                          project={entry.project}
-                          index={entry.projectIndex}
-                          projectId={entry.projectId}
-                        />
-                      ))}
+                      {categoryProjects.map((entry) => {
+                        const hidden =
+                          !showAllProjects && !previewProjectKeys.has(entry.uniqueKey);
+                        return (
+                          <div
+                            key={entry.uniqueKey}
+                            className={hidden ? 'sr-only' : undefined}
+                            aria-hidden={hidden || undefined}
+                          >
+                            <ProjectCard
+                              project={entry.project}
+                              index={entry.projectIndex}
+                              projectId={entry.projectId}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 );
@@ -781,6 +766,11 @@ export default function Home() {
                       {certification.issuer}
                       <ExternalLink size={12} className="text-white/45" />
                     </p>
+                    {certification.date && (
+                      <p className="text-amber-200/60 text-xs mt-2 font-medium tracking-wide">
+                        {certification.date}
+                      </p>
+                    )}
                   </motion.a>
                 ))}
               </div>

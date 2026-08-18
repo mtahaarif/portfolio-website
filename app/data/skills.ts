@@ -1,56 +1,60 @@
 import { Brain, Eye, Server, Code2, Cpu } from 'lucide-react';
 
-// Skills — prioritized for AI/CV/ML positioning
+// Skills — mirrors app/data/cms.ts skillGroups. Every entry is backed by a
+// shipped project or professional role; nothing aspirational.
 export const skillCategories = [
   {
-    title: "Computer Vision",
+    title: "Vision, Audio & Edge AI",
     icon: Eye,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
     skills: [
-      "OpenCV", "YOLO", "MediaPipe", "Optical Flow",
-      "Face Anti-Spoofing", "3D Reconstruction", "Image Processing",
+      "OpenCV", "YOLOv8", "MediaPipe", "ResNet / MobileNet",
+      "3D Gaussian Splatting", "Librosa", "Whisper",
+      "TFLite (INT8/NF4)", "ONNX", "Raspberry Pi 5",
     ],
   },
   {
-    title: "AI / Deep Learning",
+    title: "Deep Learning, LLMs & MLOps",
     icon: Brain,
     iconBg: "bg-indigo-600/20",
     iconColor: "text-indigo-400",
     skills: [
-      "PyTorch", "TensorFlow", "CNNs", "BiLSTM", "Attention",
-      "LLMs", "RAG", "LoRA", "LSTM", "Temporal Fusion Transformer",
-      "XGBoost", "LightGBM", "SHAP",
+      "PyTorch", "TensorFlow", "Hugging Face", "Transformers",
+      "LLMs (Qwen, Ollama)", "RAG (FAISS)", "LoRA Fine-Tuning",
+      "XGBoost", "LightGBM", "Optuna", "SHAP", "Polars",
     ],
   },
   {
-    title: "ML Infrastructure",
+    title: "Backend, APIs & Cloud",
     icon: Server,
     iconBg: "bg-emerald-600/20",
     iconColor: "text-emerald-400",
     skills: [
-      "FastAPI", "Docker", "Kubernetes", "Terraform",
-      "Kafka", "Git", "Linux", "CI/CD",
+      "FastAPI", "Flask", "Node.js", "REST APIs",
+      "SSE Token Streaming", "PostgreSQL", "MySQL",
+      "Prisma", "AWS EC2", "Vercel",
     ],
   },
   {
-    title: "Software Engineering",
+    title: "Frontend & Languages",
     icon: Code2,
     iconBg: "bg-purple-600/20",
     iconColor: "text-purple-400",
     skills: [
-      "Python", "TypeScript", "C++", "Java", "SQL",
-      "Next.js", "React", "Node.js", "REST APIs", "MySQL", "Tailwind CSS",
+      "Python", "TypeScript", "JavaScript", "C++", "Java", "SQL", "MATLAB",
+      "Next.js 16", "React 19", "Tailwind CSS", "Framer Motion", "WCAG",
     ],
   },
   {
-    title: "Hardware / Embedded",
+    title: "Hardware & Embedded",
     icon: Cpu,
     iconBg: "bg-amber-600/20",
     iconColor: "text-amber-400",
     skills: [
-      "FPGA (Xilinx)", "Verilog HDL", "Raspberry Pi",
-      "ESP32", "Arduino", "Digital Logic Design",
+      "Verilog HDL", "FPGA (Xilinx)", "ISA Design",
+      "ESP32", "Arduino", "LoRa", "Digital Logic",
+      "Bash / Linux", "Git",
     ],
   },
 ];

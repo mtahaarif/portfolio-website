@@ -6,34 +6,9 @@ export const dynamic = 'force-dynamic';
 
 const CONTENT_KEY = 'portfolio-main-content';
 
-const projectGithubOverrides: Record<string, string> = {
-  'SERENITY: Smart Emotion Recognition & Neural Intervention':
-    'https://github.com/mtahaarif/Smart-Emotion-Recognition-and-Neural-Intervention-Technology-SERENITY-',
-  'Biometrics Anti-Spoofing, Identity & Signature Verification':
-    'https://github.com/mtahaarif/Biometrics-Anti-Spoofing-Identity-Signature-Verification',
-  'Audio Classification Using Neural Networks': 'https://github.com/mtahaarif/Audio-Classification-System',
-  'Robust Speech Emotion Recognition via Hybrid Deep Neural Networks':
-    'https://github.com/mtahaarif/Robust-Speech-Emotion-Recognition-via-Hybrid-Deep-Neural-Networks-',
-  'Santander Customer Transaction Prediction':
-    'https://github.com/mtahaarif/Santander-Customer-Transaction-Prediction',
-  'Industrial Database Management System':
-    'https://github.com/mtahaarif/Industrial-Database-Management-System',
-  'Dental Practice Platform & Custom Headless CMS': 'https://github.com/mtahaarif/hainescitydental',
-  'Remote Weather Detection IoT Car': 'https://github.com/mtahaarif/Remote-Weather-Detection-IoT-Car',
-  'Smart Car Parking Fare Generator': 'https://github.com/mtahaarif/Smart-Car-Parking-Fare-Generator',
-  '"Gameboy" Multi-Game Launcher': 'https://github.com/mtahaarif/-Gameboy-Multi-Game-Launcher',
-  'Comprehensive OS Scheduler & Disk Simulator':
-    'https://github.com/mtahaarif/Comprehensive-OS-Scheduler-Disk-Simulator',
-  'Search Engine Desktop Application (Data Structures)':
-    'https://github.com/mtahaarif/Search-Engine-Desktop-Application',
-  'Real-Time Image Analysis for Self-Driving Capabilities':
-    'https://github.com/mtahaarif/Real-Time-Image-Analysis-for-Self-Driving-Capabilities',
-  'FPGA Implementation of Advanced Snake Game with AI':
-    'https://github.com/mtahaarif/FPGA-Implementation-of-Advanced-Snake-Game-with-AI',
-  'Custom 16-bit Instruction Set Processor': 'https://github.com/mtahaarif/Custom-16-Bit-Processor',
-  'Object-Oriented Airport Traffic Simulation':
-    'https://github.com/mtahaarif/Object-Oriented-Airport-Traffic-Simulation',
-};
+// GitHub URLs are owned by app/data/cms.ts — the single source of truth.
+// Do not reintroduce a title-keyed override map here: renaming a project
+// silently breaks the link instead of failing loudly.
 
 function canWrite(request: Request): boolean {
   const token = process.env.CMS_ADMIN_TOKEN;
@@ -54,29 +29,16 @@ async function ensureTable() {
   `;
 }
 
+// Project order is authored deliberately in cms.ts (strongest work first),
+// so this pass only guarantees every project carries a resolvable link.
 function normalizeProjectCategories(data: PortfolioCMSData): PortfolioCMSData['projectCategories'] {
-  return data.projectCategories.map((category) => {
-    const projectsWithLinks = category.projects.map((project) => ({
+  return data.projectCategories.map((category) => ({
+    ...category,
+    projects: category.projects.map((project) => ({
       ...project,
-      github: projectGithubOverrides[project.title] ?? project.github,
-    }));
-
-    if (category.id !== 'ai-computer-vision') {
-      return { ...category, projects: projectsWithLinks };
-    }
-
-    const serenity = projectsWithLinks.find((project) =>
-      project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
-    );
-    const rest = projectsWithLinks.filter(
-      (project) => !project.title.startsWith('SERENITY: Smart Emotion Recognition & Neural Intervention')
-    );
-
-    return {
-      ...category,
-      projects: serenity ? [serenity, ...rest] : projectsWithLinks,
-    };
-  });
+      github: project.github?.trim() || 'https://github.com/mtahaarif',
+    })),
+  }));
 }
 
 function mergeCertifications(base: PortfolioCMSData['certifications'], incoming: PortfolioCMSData['certifications']) {
