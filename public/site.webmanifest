@@ -1,7 +1,10 @@
 {
-  "name": "Muhammad Taha",
-  "title": "AI Engineer & Computer Vision Specialist",
-  "email": "ch.tahaarif2005@gmail.com",
-  "phone": "+92 317 5434059",
-  "location": "Islamabad, Pakistan"
+  "name": "Muhammad Taha — Full-Stack AI Engineer",
+  "short_name": "Muhammad Taha",
+  "description": "Clinical AI, computer vision, edge deployment, and production web systems.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06070f",
+  "theme_color": "#020817",
+  "icons": []
 }

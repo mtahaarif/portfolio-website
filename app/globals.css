@@ -3,272 +3,430 @@
 @tailwind utilities;
 
 :root {
-  --gradient-primary: linear-gradient(135deg, #facc15 0%, #f59e0b 55%, #d97706 100%);
-  --gradient-secondary: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #f97316 100%);
   --gradient-dark: linear-gradient(145deg, #06070f 0%, #101625 44%, #1a120d 100%);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --gold-lit: #fcd34d;
+  --gold-dim: rgba(255, 255, 255, 0.16);
 }
 
 html {
   scroll-behavior: smooth;
+  /* Anchor targets used to slide under the fixed nav. */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--gradient-dark);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background: #06070f;
   color: rgba(255, 255, 255, 0.96);
+  overflow-x: hidden;
+  /* Never let a scroll-driven section jitter from horizontal overflow. */
+  overscroll-behavior-x: none;
+}
+
+/*
+  The page background used to be five stacked radial gradients painted across a
+  ~20,000px-tall element. It now lives on one fixed, viewport-sized layer, so it
+  is rasterised once and composited rather than repainted as you scroll.
+*/
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 12%, rgba(251, 191, 36, 0.12) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 88%, rgba(245, 158, 11, 0.16) 0%, transparent 40%),
+    radial-gradient(ellipse at 46% 4%, rgba(99, 102, 241, 0.2) 0%, transparent 48%),
+    var(--gradient-dark);
 }
 
 @layer components {
-  /* Glassmorphism Cards */
+  /*
+    Two card surfaces, deliberately split.
+
+    `.glass-card` keeps backdrop-filter and is used ONLY on the nav, where blur
+    over scrolling content is the point. `.surface-card` is the same look built
+    from an opaque gradient with no backdrop-filter, and is what the ~50 carousel
+    cards, stack cards and panels use. backdrop-filter forces the compositor to
+    snapshot and blur everything behind each element every frame; at ~60 blurred
+    layers it was the single largest cost on the page.
+  */
   .glass-card {
-    position: relative;
-    background: linear-gradient(160deg, rgba(28, 24, 20, 0.8), rgba(17, 15, 14, 0.78));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(250, 204, 21, 0.28);
-    box-shadow: 
+    background: linear-gradient(160deg, rgba(20, 18, 15, 0.72), rgba(12, 11, 10, 0.78));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(250, 204, 21, 0.22);
+  }
+
+  .surface-card {
+    background: linear-gradient(160deg, rgba(30, 26, 21, 0.94), rgba(17, 15, 14, 0.96));
+    border: 1px solid rgba(250, 204, 21, 0.26);
+    box-shadow:
       0 8px 28px rgba(0, 0, 0, 0.45),
-      inset 0 1px 0 rgba(255, 236, 188, 0.18);
+      inset 0 1px 0 rgba(255, 236, 188, 0.14);
   }
 
-  .glass-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    border: 1px solid rgba(255, 222, 144, 0.2);
+  /*
+    Only `transform`, `border-color` and `box-shadow` transition. The previous
+    `transition-all duration-500` also animated background-image, which cannot be
+    composited and repainted the whole card on every hover frame.
+  */
+  .surface-card-hover {
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 260ms ease,
+      box-shadow 260ms ease;
   }
 
-  .glass-card-hover {
-    @apply glass-card transition-all duration-500;
+  @media (hover: hover) {
+    .surface-card-hover:hover {
+      transform: translate3d(0, -4px, 0);
+      border-color: rgba(250, 204, 21, 0.62);
+      box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.55),
+        0 0 28px rgba(251, 191, 36, 0.28);
+    }
   }
 
-  .glass-card-hover:hover {
-    background: linear-gradient(160deg, rgba(45, 31, 18, 0.85), rgba(26, 20, 15, 0.84));
-    border-color: rgba(250, 204, 21, 0.68);
-    box-shadow: 
-      0 0 0 1px rgba(253, 230, 138, 0.35),
-      0 14px 46px rgba(0, 0, 0, 0.55),
-      0 0 34px rgba(251, 191, 36, 0.45),
-      inset 0 1px 0 rgba(255, 240, 199, 0.24);
-    transform: translateY(-4px);
-  }
-
-  /* Liquid Gradient Background - PS5 Style */
-  .liquid-bg {
-    background: 
-      radial-gradient(ellipse at 12% 12%, rgba(251, 191, 36, 0.12) 0%, transparent 42%),
-      radial-gradient(ellipse at 88% 88%, rgba(245, 158, 11, 0.16) 0%, transparent 40%),
-      radial-gradient(ellipse at 46% 4%, rgba(99, 102, 241, 0.22) 0%, transparent 48%),
-      radial-gradient(ellipse at 55% 52%, rgba(250, 204, 21, 0.06) 0%, transparent 56%),
-      var(--gradient-dark);
-  }
-
-  /* Animated Gradient Text - Golden Accent */
   .gradient-text {
     background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
     background-size: 300% 300%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gradient-shift 8s ease infinite;
   }
 
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  .btn-primary,
+  .btn-secondary {
+    @apply px-8 py-3 font-semibold rounded-full;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease,
+      background-color 200ms ease;
   }
 
-  /* Buttons */
   .btn-primary {
-    @apply px-8 py-3 font-semibold rounded-full transition-all duration-300;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
-  }
-
-  .btn-primary:hover {
-    box-shadow: 0 6px 30px rgba(245, 158, 11, 0.6);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.38);
   }
 
   .btn-secondary {
-    @apply px-8 py-3 font-semibold rounded-full transition-all duration-300;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(250, 204, 21, 0.33);
   }
 
+  .btn-primary:hover,
   .btn-secondary:hover {
-    background: rgba(251, 191, 36, 0.12);
-    border-color: rgba(251, 191, 36, 0.7);
-    box-shadow: 0 0 24px rgba(245, 158, 11, 0.32);
+    transform: translate3d(0, -2px, 0);
   }
 
-  /* Tags */
+  .btn-primary:hover {
+    box-shadow: 0 6px 28px rgba(245, 158, 11, 0.58);
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(251, 191, 36, 0.12);
+    border-color: rgba(251, 191, 36, 0.7);
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.975);
+  }
+
   .skill-tag {
-    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300;
-    background: rgba(250, 204, 21, 0.12);
+    @apply px-4 py-2 rounded-full text-sm font-medium;
+    background-color: rgba(250, 204, 21, 0.12);
     border: 1px solid rgba(250, 204, 21, 0.34);
     color: rgba(255, 238, 178, 0.95);
+    transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease;
   }
 
-  .skill-tag:hover {
-    background: rgba(251, 191, 36, 0.2);
-    border-color: rgba(251, 191, 36, 0.6);
-    transform: scale(1.05);
+  @media (hover: hover) {
+    .skill-tag:hover {
+      background-color: rgba(251, 191, 36, 0.2);
+      border-color: rgba(251, 191, 36, 0.6);
+      transform: scale(1.05);
+    }
+  }
+
+  .skill-tag[aria-selected='true'] {
+    background-color: rgba(251, 191, 36, 0.24);
+    border-color: rgba(251, 191, 36, 0.85);
+    color: rgba(255, 246, 214, 1);
   }
 
   .tech-tag {
     @apply px-3 py-1 rounded-full text-xs font-medium;
-    background: rgba(255, 251, 240, 0.08);
+    background-color: rgba(255, 251, 240, 0.08);
     border: 1px solid rgba(255, 225, 156, 0.28);
     color: rgba(255, 237, 191, 0.85);
   }
 
   .category-tag {
     @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
-    background: linear-gradient(135deg, rgba(250, 204, 21, 0.22), rgba(249, 115, 22, 0.18));
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.24), rgba(249, 115, 22, 0.2));
     border: 1px solid rgba(250, 204, 21, 0.4);
     color: rgba(255, 236, 176, 0.96);
   }
 
-  .cert-card {
-    border: 1px solid rgba(250, 204, 21, 0.34);
-    background: linear-gradient(160deg, rgba(35, 27, 20, 0.82), rgba(23, 19, 15, 0.8));
-  }
-
-  .cert-card:hover {
-    border-color: rgba(250, 204, 21, 0.75);
-    box-shadow:
-      0 0 0 1px rgba(255, 231, 151, 0.36),
-      0 0 34px rgba(250, 204, 21, 0.4),
-      0 12px 36px rgba(0, 0, 0, 0.52);
-  }
-
-  /* Social Icons */
   .social-icon {
-    @apply w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300;
-    background: rgba(255, 255, 255, 0.04);
+    @apply w-12 h-12 flex items-center justify-center rounded-full;
+    background-color: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 219, 132, 0.28);
     color: rgba(255, 255, 255, 0.8);
+    transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
   }
 
-  .social-icon:hover {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    border-color: transparent;
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
+  @media (hover: hover) {
+    .social-icon:hover {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border-color: transparent;
+      color: #1a120d;
+      transform: scale(1.1) rotate(5deg);
+    }
   }
 
-  /* Timeline */
-  .timeline-dot {
-    @apply w-4 h-4 rounded-full;
-    background: linear-gradient(135deg, #fbbf24, #f97316);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(251, 191, 36, 0.5) transparent;
   }
 
-  /* Floating Animation */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  /* Glow Effect */
-  .glow {
-    position: relative;
-  }
-
-  .glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, #facc15, #f59e0b, #f97316);
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    filter: blur(15px);
-  }
-
-  .glow:hover::before {
-    opacity: 0.6;
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    border-radius: 4px;
-  }
-
-  /* Section Styling */
-  .section-title {
-    @apply text-4xl md:text-5xl font-bold text-center mb-4;
-  }
-
-  .section-subtitle {
-    @apply text-lg text-center mb-16;
-    color: rgba(255, 255, 255, 0.6);
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(251, 191, 36, 0.5);
+    border-radius: 3px;
   }
 }
 
-/* Particle Background Animation */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ── Entrance reveals (replaces framer-motion whileInView) ───────────────── */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  transform: translate3d(-22px, 0, 0);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.fade-up {
+  animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.nav-drop {
+  animation: nav-drop 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes nav-drop {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.hint-bob {
+  animation: hint-bob 2s ease-in-out infinite;
+}
+
+@keyframes hint-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 8px, 0);
+  }
+}
+
+/* ── Scroll-linked word glow ─────────────────────────────────────────────── */
+/*
+  One custom property (`--p`) is written to the paragraph per frame; each word
+  derives its own colour from it in CSS. This replaces ~85 framer-motion colour
+  MotionValues that each pushed a React update on every scroll frame.
+*/
+.glow-line {
+  /* Fully lit until the client takes over, so the copy is never a grey smear
+     pre-hydration or with JavaScript disabled. */
+  --p: 1;
+  color: var(--gold-dim);
+}
+
+/* 2.4 words are mid-transition at any moment, which reads as a travelling band. */
+.glow-word {
+  --t: clamp(0, calc((var(--p) * var(--n) - var(--i)) / 2.4), 1);
+  display: inline-block;
+  color: color-mix(in srgb, var(--gold-lit) calc(var(--t) * 100%), var(--gold-dim));
+}
+
+/* ── Stacking cards (skills + certifications) ────────────────────────────── */
+.stack-card {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.stack-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.22);
+  transition: background-color 260ms ease, transform 260ms ease;
+}
+
+.stack-dot[data-on='true'] {
+  background-color: #fbbf24;
+  transform: scale(1.6);
+}
+
+/* ── Particles ───────────────────────────────────────────────────────────── */
+/*
+  `mix-blend-mode: screen` on this fixed, full-viewport layer forced the browser
+  to re-blend the entire page behind it on every frame. Removing it leaves the
+  particles purely composited: only `transform` and `opacity` animate.
+*/
 .particles {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  inset: 0;
   overflow: hidden;
-  z-index: 1;
-  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .particle {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, rgba(255, 230, 150, 0.95) 0%, rgba(251, 191, 36, 0.62) 45%, rgba(217, 119, 6, 0.2) 70%, transparent 100%);
-  border-radius: 50%;
-  animation: particle-float 18s infinite;
-  box-shadow:
-    0 0 10px rgba(251, 191, 36, 0.75),
-    0 0 18px rgba(249, 115, 22, 0.35);
+  bottom: -10vh;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 230, 150, 0.95) 0%,
+    rgba(251, 191, 36, 0.6) 45%,
+    rgba(217, 119, 6, 0.18) 70%,
+    transparent 100%
+  );
+  animation-name: particle-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes particle-float {
-  0%, 100% {
-    transform: translateY(100vh) rotate(0deg);
+  0% {
+    transform: translate3d(0, 0, 0);
     opacity: 0;
   }
-  10% {
+  12% {
     opacity: 1;
   }
-  90% {
+  88% {
     opacity: 1;
   }
   100% {
-    transform: translateY(-100vh) rotate(720deg);
+    transform: translate3d(0, -120vh, 0);
     opacity: 0;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .particles {
+    display: none;
+  }
+
+  .gradient-text,
+  .hint-bob {
+    animation: none;
+  }
+
+  .reveal,
+  .fade-up,
+  .nav-drop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .glow-line {
+    color: var(--gold-lit);
+  }
+
+  .glow-word {
+    color: inherit;
+  }
+
+  /*
+    Unpin both card stacks and lay the deck out as a plain vertical list. Without
+    this the cards stay absolutely positioned on top of one another and only the
+    last one in each stack is ever readable.
+  */
+  .stack-track {
+    height: auto !important;
+  }
+
+  .stack-pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding-block: 1rem;
+  }
+
+  .stack-deck {
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stack-card {
+    position: relative;
+    inset: auto;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .stack-dots {
+    display: none;
   }
 }
