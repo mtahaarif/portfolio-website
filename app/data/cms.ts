@@ -255,20 +255,51 @@ const machineLearningProjects: CmsProject[] = [
    ───────────────────────────────────────────────────────────────────────── */
 const fullStackProjects: CmsProject[] = [
   {
-    tag: 'Production Platform',
-    title: 'Haines City Dental: Practice Platform & Headless CMS',
-    image: '/haines-city-dental.png',
+    tag: 'Client Delivery',
+    title: 'Love Thy Neighbor Home Health Care: Motion-Rich Static Platform',
+    image: '/love-thy-neighbor.png',
     description:
-      'A dual-database headless CMS for a live dental practice, cutting content update time 90% and running in production for 140+ commits.',
+      'A GoDaddy-to-Next.js 16 rebuild: 32 statically prerendered routes driven by typed content modules, with scroll-linked motion and native view transitions.',
     problem:
-      'A live dental practice was locked into a legacy WordPress site where every content change required a developer, and staff could not publish news, team, or service updates themselves.',
+      'A Florida home-health agency was stuck on a GoDaddy Website Builder site: generic markup, no design control, and tracking and service-worker scripts it did not need.',
     approach:
-      'Bespoke headless CMS on Next.js 14 with a dual-database backend — Prisma over PostgreSQL for structured doctor records alongside a lazily-initialised MySQL pool for editorial content. Admin dashboard with HTML5 drag-and-drop reordering persisted through dedicated endpoints, protected by edge middleware, httpOnly JWT cookies, a client-side auth guard, and 15-minute inactivity auto-logout tracked across seven interaction event types. Direct-to-Vercel-Blob uploads through an auth-brokered token route, with automated cache revalidation after every write. Wrote 15+ Node.js migration scripts covering HTML extraction, image de-duplication, WebP conversion, and orphaned-asset validation over an SSH-tunnelled MySQL link.',
+      'Crawled all 32 pages at desktop and mobile widths with a headless browser, then extracted every page, image, metadata tag and 12 blog posts (converted from Draft.js to sanitised HTML) into typed content modules. Rebuilt on Next.js 16 with Cache Components and a Tailwind 4 design-token system. Motion includes stacking sticky cards, a pinned horizontal services scroller, a scroll-linked timeline, magnetic buttons, and React ViewTransition shared-element morphs between pages. A hydration-safe reduced-motion hook gates all of it. Contact and newsletter forms post to API routes that whitelist fields and forward to an optional webhook.',
     result:
-      'Content update turnaround cut 90% — 30+ minutes to under 2 — while holding sub-100kB initial loads through SSR. Public routes retry three times with exponential backoff (1s, 2s, capped at 5s); SMTP workflows fall back to a prefilled mailto payload when unconfigured. 140 commits, running in production for a paying practice.',
-    tech: ['Next.js 14', 'TypeScript', 'Prisma', 'PostgreSQL', 'MySQL', 'JWT', 'Vercel Blob', 'ISR'],
-    github: `${GH}/hainescitydental`,
+      'A fully static site (36 build outputs) with URLs, titles, canonicals and Open Graph tags identical to the original, so existing search results keep working. Verified by a 19-test end-to-end suite, and by a console sweep of all 32 pages with and without reduced motion that found no errors or hydration warnings.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Motion', 'View Transitions', 'Cache Components'],
+    github: `${GH}/LoveThyNeighbourHC`,
     clientWork: true,
+  },
+  {
+    tag: 'Client Delivery',
+    title: 'eWorld Innovative: Zero-Dependency Liquid-Glass Site',
+    image: '/eworld-innovative.png',
+    description:
+      'A WordPress-to-Next.js 16 rebuild with no runtime dependencies beyond React: a hand-built hero slider, infinite carousel and CSS-only sticky timeline.',
+    problem:
+      'An IT-services company ran on WordPress with a commercial theme and several plugins (Slider Revolution, WPBakery, jQuery), which cost it performance and design control.',
+    approach:
+      'Replaced the stack with three prerendered pages, six small client components, and CSS Modules in a dark glass design. Rebuilt Slider Revolution as a hero with a five-strip curtain transition, autoplay and swipe. Its per-breakpoint text geometry runs entirely in CSS via container queries, so there is no layout JavaScript. Built an infinite services carousel that tiles three copies of the cards and recentres silently, with autoplay gated on hover, focus, visibility and reduced motion. The About timeline is pure CSS position: sticky. All copy lives in two typed content files.',
+    result:
+      'All routes static, with no UI kit, animation library or CSS framework. Hydration is limited to six components, and the first paint is already laid out correctly. Includes a mobile slide-in menu using `inert` and scroll lock, and full no-JS and reduced-motion fallbacks.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'CSS Modules', 'Container Queries', 'IntersectionObserver', 'next/image'],
+    github: `${GH}/eworld-innovative`,
+    clientWork: true,
+  },
+  {
+    tag: 'SEO Platform',
+    title: 'SiteOptimizer: Search-Visibility Platform',
+    image: '/siteoptimizer.png',
+    description:
+      'A Postgres-backed audit platform with 332 gated checks, a provably monotonic scoring model, LLM content grading and answer-engine readiness analysis.',
+    problem:
+      'Commercial site auditors report cosmetic and framework-irrelevant findings, and Sitechecker\'s published scoring formula is non-monotonic: fixing critical issues can lower the score. Neither covers whether AI answer engines can read a site.',
+    approach:
+      'A breadth-first crawler with manual redirect tracing, Google-semantics robots parsing and a single parse pass per page, feeding 332 declarative checks across 15 categories. Platform fingerprinting across 35 platforms gates checks and prints the reason for every skip. The scoring model uses published severity weights, exponential decay and PageRank-plus-traffic page importance. Further modules: LLM content grading with Zod-validated structured output, a deterministic page × place location-coverage matrix, per-URL AEO analysis, and 15 Next.js-specific checks. Also built: uptime monitoring, SERP rank tracking behind a quota ledger, and backlink verification. Runs on Vercel with `after()`, Postgres job progress and self-migrating schema.',
+    result:
+      'The new scoring model lowered the score in 0 of 2,000 fuzz trials, against 348 (17%) for Sitechecker\'s formula. Source-position locators resolve 137 of the checks, and PDF export reuses the live dashboard components. Dogfooding the tool found and fixed a crawler bug that duplicated redirect aliases as duplicate content.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'PostgreSQL', 'Playwright', 'Zod', 'Gemini / Groq / Anthropic', 'Vercel'],
+    github: `${GH}/SiteOptimizer`,
   },
   {
     tag: 'Client Delivery',
@@ -318,6 +349,52 @@ const fullStackProjects: CmsProject[] = [
     github: `${GH}/A-T-Nexus-`,
     clientWork: true,
   },
+    {
+    tag: 'Production Platform',
+    title: 'Haines City Dental: Practice Platform & Headless CMS',
+    image: '/haines-city-dental.png',
+    description:
+      'A dual-database headless CMS for a live dental practice, cutting content update time 90% and running in production for 140+ commits.',
+    problem:
+      'A live dental practice was locked into a legacy WordPress site where every content change required a developer, and staff could not publish news, team, or service updates themselves.',
+    approach:
+      'Bespoke headless CMS on Next.js 14 with a dual-database backend — Prisma over PostgreSQL for structured doctor records alongside a lazily-initialised MySQL pool for editorial content. Admin dashboard with HTML5 drag-and-drop reordering persisted through dedicated endpoints, protected by edge middleware, httpOnly JWT cookies, a client-side auth guard, and 15-minute inactivity auto-logout tracked across seven interaction event types. Direct-to-Vercel-Blob uploads through an auth-brokered token route, with automated cache revalidation after every write. Wrote 15+ Node.js migration scripts covering HTML extraction, image de-duplication, WebP conversion, and orphaned-asset validation over an SSH-tunnelled MySQL link.',
+    result:
+      'Content update turnaround cut 90% — 30+ minutes to under 2 — while holding sub-100kB initial loads through SSR. Public routes retry three times with exponential backoff (1s, 2s, capped at 5s); SMTP workflows fall back to a prefilled mailto payload when unconfigured. 140 commits, running in production for a paying practice.',
+    tech: ['Next.js 14', 'TypeScript', 'Prisma', 'PostgreSQL', 'MySQL', 'JWT', 'Vercel Blob', 'ISR'],
+    github: `${GH}/hainescitydental`,
+    clientWork: true,
+  },
+    {
+    tag: 'Database Engineering',
+    title: 'Industrial Database Management System',
+    image: '/industrial-dbms.png',
+    description:
+      "A schema-driven Flask application that auto-generates CRUD forms directly from SQL Server's live INFORMATION_SCHEMA.",
+    problem:
+      'A wire and cable manufacturer tracked employees, factories, suppliers, materials, and six distinct production processes across disconnected records with no consistent schema.',
+    approach:
+      'Designed a normalised relational schema from an Enhanced Entity-Relationship model, using supertype/subtype category structures to represent both production processes and material types so the hierarchy is preserved end to end rather than flattened. Rather than hardcoding queries per table, the Flask application introspects SQL Server INFORMATION_SCHEMA at runtime to auto-generate data-entry forms, execute inner joins, and enable runtime table creation.',
+    result:
+      'A session-gated operations system where schema changes propagate to the UI automatically, with combined views joining each parent table to its subtype children and a generic table viewer supporting column-based search — letting non-technical staff manage manufacturing records without writing SQL.',
+    tech: ['Flask', 'Python', 'SQL Server', 'pyodbc', 'EER Modelling', 'Normalisation', 'Jinja2'],
+    github: `${GH}/Industrial-Database-Management-System`,
+  },
+  {
+    tag: 'Network Engineering',
+    title: 'IPv6 WAN Design & OSPFv3 Routing',
+    image: '/ipv6-wan.jpg',
+    description:
+      'A pure-IPv6 wide-area network configured end-to-end in Cisco Packet Tracer with OSPFv3 dynamic routing.',
+    problem:
+      'IPv4 exhaustion forces new WAN designs onto IPv6, which changes addressing, neighbour discovery, and the routing protocol itself — not merely the address length.',
+    approach:
+      'Designed and configured a pure-IPv6 wide-area network on Cisco 2811 ISRs and 2950-24 switches with no IPv4 on any interface anywhere, connecting distinct /64 LAN subnets across sites via a point-to-point serial link. Configured OSPFv3 through IOS CLI for dynamic route propagation, resolving the IPv6-specific constraint that OSPFv3 still requires a 32-bit router-ID by injecting them manually, and enabling global IPv6 unicast forwarding.',
+    result:
+      'End-to-end full-mesh reachability verified between all end devices at 0% packet loss using ICMPv6 echo and continuous TTL hop-count monitoring, documented with full topology, per-router running configuration, and ping verification across every site pair.',
+    tech: ['IPv6', 'OSPFv3', 'Cisco IOS', 'Packet Tracer', 'WAN Design', 'Dynamic Routing'],
+    github: `${GH}/IPv6-WAN-Design-Inter-OSPFv3-Routing`,
+  },
   {
     tag: 'Data Structures',
     title: 'Search Engine Desktop Application',
@@ -363,36 +440,7 @@ const fullStackProjects: CmsProject[] = [
     tech: ['Java', 'OOP Design', 'Dijkstra', 'Priority Queues', 'Multithreading', 'Discrete Simulation'],
     github: `${GH}/Object-Oriented-Java-Airport-Traffic-Simulation`,
   },
-  {
-    tag: 'Database Engineering',
-    title: 'Industrial Database Management System',
-    image: '/industrial-dbms.png',
-    description:
-      "A schema-driven Flask application that auto-generates CRUD forms directly from SQL Server's live INFORMATION_SCHEMA.",
-    problem:
-      'A wire and cable manufacturer tracked employees, factories, suppliers, materials, and six distinct production processes across disconnected records with no consistent schema.',
-    approach:
-      'Designed a normalised relational schema from an Enhanced Entity-Relationship model, using supertype/subtype category structures to represent both production processes and material types so the hierarchy is preserved end to end rather than flattened. Rather than hardcoding queries per table, the Flask application introspects SQL Server INFORMATION_SCHEMA at runtime to auto-generate data-entry forms, execute inner joins, and enable runtime table creation.',
-    result:
-      'A session-gated operations system where schema changes propagate to the UI automatically, with combined views joining each parent table to its subtype children and a generic table viewer supporting column-based search — letting non-technical staff manage manufacturing records without writing SQL.',
-    tech: ['Flask', 'Python', 'SQL Server', 'pyodbc', 'EER Modelling', 'Normalisation', 'Jinja2'],
-    github: `${GH}/Industrial-Database-Management-System`,
-  },
-  {
-    tag: 'Network Engineering',
-    title: 'IPv6 WAN Design & OSPFv3 Routing',
-    image: '/ipv6-wan.jpg',
-    description:
-      'A pure-IPv6 wide-area network configured end-to-end in Cisco Packet Tracer with OSPFv3 dynamic routing.',
-    problem:
-      'IPv4 exhaustion forces new WAN designs onto IPv6, which changes addressing, neighbour discovery, and the routing protocol itself — not merely the address length.',
-    approach:
-      'Designed and configured a pure-IPv6 wide-area network on Cisco 2811 ISRs and 2950-24 switches with no IPv4 on any interface anywhere, connecting distinct /64 LAN subnets across sites via a point-to-point serial link. Configured OSPFv3 through IOS CLI for dynamic route propagation, resolving the IPv6-specific constraint that OSPFv3 still requires a 32-bit router-ID by injecting them manually, and enabling global IPv6 unicast forwarding.',
-    result:
-      'End-to-end full-mesh reachability verified between all end devices at 0% packet loss using ICMPv6 echo and continuous TTL hop-count monitoring, documented with full topology, per-router running configuration, and ping verification across every site pair.',
-    tech: ['IPv6', 'OSPFv3', 'Cisco IOS', 'Packet Tracer', 'WAN Design', 'Dynamic Routing'],
-    github: `${GH}/IPv6-WAN-Design-Inter-OSPFv3-Routing`,
-  },
+
   {
     tag: 'Systems Programming',
     title: 'Multi-Game Launcher & Management System',
@@ -514,11 +562,11 @@ export const cmsDefaults: PortfolioCMSData = {
       sub: 'Remote',
       period: 'Aug 2025 – Present',
       bullets: [
-        'Sole engineer across four production Next.js platforms for US healthcare, home-care, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
+        'Sole engineer across six production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
         'Engineered JWT-secured admin APIs over Prisma/PostgreSQL alongside pooled MySQL, with direct-to-Vercel-Blob upload brokering and automated cache revalidation, plus Resend, SMTP/Nodemailer, Google Sheets CRM, WhatsApp, and Calendly integrations',
         'Standardised hardened defaults across client sites — strict Content-Security-Policy, X-Frame-Options, MIME-sniff protection, honeypot fields, HTML-entity escaping, and WCAG-compliant reduced-motion interfaces',
-        'Authored 15+ Node.js migration and asset-optimisation scripts porting a legacy WordPress practice site into Next.js — HTML extraction, image de-duplication, WebP conversion, and orphaned-asset validation over an SSH-tunnelled remote MySQL link',
-        'Built React 19 / TypeScript interfaces with @react-three/fiber 3D scenes, scroll-driven Framer Motion storytelling, IntersectionObserver scroll-spy, and exponential-backoff client fetching',
+        'Authored 15+ Node.js migration and asset-optimisation scripts porting a legacy WordPress practice site into Next.js, and crawled two more legacy sites (GoDaddy, WordPress) with a headless browser into typed content modules that preserved every URL, canonical, and Open Graph tag',
+        'Built React 19 / TypeScript interfaces with @react-three/fiber 3D scenes, scroll-driven Framer Motion storytelling, React ViewTransition page morphs, CSS-only sticky and container-query layouts, and exponential-backoff client fetching',
       ],
     },
     {
@@ -572,7 +620,7 @@ export const cmsDefaults: PortfolioCMSData = {
       // Added: C++17 (Search Engine, Multi-Game Launcher — 'C++' alone undersold
       // the standard used), Qt Widgets, Java Swing. These are real desktop UI
       // work (Search Engine, OS Simulator, Airport ASTC) that had no home before.
-      skills: ['Python', 'TypeScript', 'JavaScript', 'C++', 'Java', 'SQL', 'MATLAB', 'Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'Qt Widgets', 'Java Swing', 'WCAG','SFML'],
+      skills: ['Python', 'TypeScript', 'JavaScript', 'C++', 'Java', 'SQL', 'MATLAB', 'Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'View Transitions', 'CSS Modules', 'Qt Widgets', 'Java Swing', 'WCAG', 'SFML'],
     },
     {
       title: 'Backend, APIs & Cloud',
@@ -582,8 +630,7 @@ export const cmsDefaults: PortfolioCMSData = {
       // Added: Prisma was already there; added JWT Auth (dental CMS,
       // Benevolence), SQL Server / pyodbc (Industrial DBMS — a real backend
       // with zero prior representation), and Resend (3 client platforms).
-      skills: ['FastAPI', 'Flask', 'Node.js', 'REST APIs', 'Server-Sent Events', 'JWT Auth', 'PostgreSQL', 'MySQL', 'SQL Server / pyodbc', 'Prisma', 'Resend', 'AWS EC2', 'Vercel'],
-    },
+    skills: ['FastAPI', 'Flask', 'Node.js', 'REST APIs', 'Server-Sent Events', 'JWT Auth', 'PostgreSQL', 'MySQL', 'SQL Server / pyodbc', 'Prisma', 'Resend', 'Playwright', 'Zod', 'AWS EC2', 'Vercel'],    },
     {
       title: 'Deep Learning, LLMs & MLOps',
       iconKey: 'brain',

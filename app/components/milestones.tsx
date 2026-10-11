@@ -6,15 +6,15 @@ import { SectionHeading } from './section-heading';
 
 const MILESTONES = [
   {
-    title: '4 Production Platforms',
-    desc: 'Architected and deployed end-to-end Next.js and React 19 applications for live US clients, with JWT-secured admin APIs, dual-database backends, and automated cache revalidation.',
+    title: '6 Production Platforms',
+    desc: 'Architected and deployed end-to-end Next.js and React 19 applications for live US clients, from JWT-secured admin APIs and dual-database backends to full WordPress and GoDaddy migrations.',
   },
   {
     title: '99.8% Biometric Accuracy',
     desc: 'Engineered anti-spoofing vision models across a stratified 17,834-image corpus, reaching 99.8% validation accuracy and profiled to 31 ms or lower batch execution step times.',
   },
   {
-    title: '27 Projects, Three Disciplines',
+    title: '30 Projects, Three Disciplines',
     desc: 'Machine learning and clinical AI, production full-stack platforms, and hardware down to a custom instruction set in Verilog — the full stack, literally.',
   },
   {
