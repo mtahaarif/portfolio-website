@@ -254,6 +254,22 @@ const machineLearningProjects: CmsProject[] = [
    FULL-STACK & SOFTWARE ENGINEERING
    ───────────────────────────────────────────────────────────────────────── */
 const fullStackProjects: CmsProject[] = [
+    {
+    tag: 'Client Delivery',
+    title: 'Open Arms & Heart Services: Home-Care Agency Platform',
+    image: '/open-arms-heart.png',
+    description:
+      'A statically prerendered Next.js 16 site for a Florida home-health agency, with 13 services, a care-finder recommender and a no-JS-safe Resend contact pipeline.',
+    problem:
+      'A family-run Central Florida agency offering skilled home health and non-skilled home care needed to explain two levels of care clearly, generate enquiries and recruit caregivers, without looking like a template.',
+    approach:
+      'Nine statically prerendered pages driven by typed content modules in `src/lib`, so copy and business facts never live in components. Each section has its own interaction: pinned horizontal scroll, sticky stacking cards, a scroll-spy sidebar, an interactive care finder, scroll-drawn timelines and a click-to-load map facade. Above-the-fold animation is pure CSS so the LCP paints before hydration. Contact and careers forms post to a route handler with a honeypot, validation, HTML-escaped values and a Resend REST call, and fall back to a 303 redirect with JavaScript off. Added MedicalBusiness and FAQPage JSON-LD, a generated `llms.txt`, a strict CSP and a security header set.',
+    result:
+      'Resolved every critical finding from a technical SEO audit that opened at 37/100: duplicate IDs, duplicate contact URLs and slow LCP. Lighthouse mobile went from 57 to 87-91 on Home and 67 to 97 on Services, with blocking time cut from 865 ms to 57 ms. SEO and best-practices scores are 100 on the measured pages, and every page is readable without JavaScript.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Motion', 'Lenis', 'Resend', 'JSON-LD'],
+    github: `${GH}/Open-Arms-Heart-Services`,
+    clientWork: true,
+  },
   {
     tag: 'Client Delivery',
     title: 'Love Thy Neighbor Home Health Care: Motion-Rich Static Platform',
@@ -562,7 +578,7 @@ export const cmsDefaults: PortfolioCMSData = {
       sub: 'Remote',
       period: 'Aug 2025 – Present',
       bullets: [
-        'Sole engineer across six production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
+        'Sole engineer across seven production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
         'Engineered JWT-secured admin APIs over Prisma/PostgreSQL alongside pooled MySQL, with direct-to-Vercel-Blob upload brokering and automated cache revalidation, plus Resend, SMTP/Nodemailer, Google Sheets CRM, WhatsApp, and Calendly integrations',
         'Standardised hardened defaults across client sites — strict Content-Security-Policy, X-Frame-Options, MIME-sniff protection, honeypot fields, HTML-entity escaping, and WCAG-compliant reduced-motion interfaces',
         'Authored 15+ Node.js migration and asset-optimisation scripts porting a legacy WordPress practice site into Next.js, and crawled two more legacy sites (GoDaddy, WordPress) with a headless browser into typed content modules that preserved every URL, canonical, and Open Graph tag',

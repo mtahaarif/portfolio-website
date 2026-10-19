@@ -6,7 +6,7 @@ import { SectionHeading } from './section-heading';
 
 const MILESTONES = [
   {
-    title: '6 Production Platforms',
+    title: '7 Production Platforms',
     desc: 'Architected and deployed end-to-end Next.js and React 19 applications for live US clients, from JWT-secured admin APIs and dual-database backends to full WordPress and GoDaddy migrations.',
   },
   {
