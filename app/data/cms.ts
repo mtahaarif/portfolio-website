@@ -270,6 +270,22 @@ const fullStackProjects: CmsProject[] = [
     github: `${GH}/Open-Arms-Heart-Services`,
     clientWork: true,
   },
+    {
+    tag: 'Client Delivery',
+    title: 'Mourning Dove Home Care: Native-CSS Motion Platform',
+    image: '/mourning-dove.png',
+    description:
+      'A Wix-to-Next.js 16 rebuild for a Pennsylvania home-care provider: fully static, with scroll-driven CSS animation and no animation library.',
+    problem:
+      'A Blue Bell, PA home-care provider with four service lines, including ODP and supported-employment programs, was on a Wix site that was hard to search-optimise and offered no design control.',
+    approach:
+      'Six prerendered pages with copy and business facts in typed content modules. Motion is native CSS: scroll-driven animations for a pinned horizontal scroller, stacking cards, word-by-word reveals and timelines, plus View Transitions with directional page slides and a morphing nav pill. Bundle size is controlled by a plain-`<img>` image component, client-safe content modules and a single IntersectionObserver for all reveals. Both forms use a React Server Action with progressive enhancement. Adds LocalBusiness, WebSite and FAQPage JSON-LD, a generated `llms.txt`, a strict CSP and a live "Open now" badge computed in the office\'s time zone.',
+    result:
+      'Every route is static HTML, readable and usable with JavaScript off, and the only runtime dependencies are Next, React, Tailwind and lucide-react. Reduced-motion support applies at every layer, and unsupported browsers fall back to static layouts and a scroll-snap carousel. The legacy Wix URL is redirected with a 301.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Scroll-Driven CSS', 'View Transitions', 'Server Actions', 'JSON-LD'],
+    github: `${GH}/MourningDoveHomeCare`,
+    clientWork: true,
+  },
   {
     tag: 'Client Delivery',
     title: 'Love Thy Neighbor Home Health Care: Motion-Rich Static Platform',
@@ -578,7 +594,7 @@ export const cmsDefaults: PortfolioCMSData = {
       sub: 'Remote',
       period: 'Aug 2025 – Present',
       bullets: [
-        'Sole engineer across seven production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
+        'Sole engineer across eight production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
         'Engineered JWT-secured admin APIs over Prisma/PostgreSQL alongside pooled MySQL, with direct-to-Vercel-Blob upload brokering and automated cache revalidation, plus Resend, SMTP/Nodemailer, Google Sheets CRM, WhatsApp, and Calendly integrations',
         'Standardised hardened defaults across client sites — strict Content-Security-Policy, X-Frame-Options, MIME-sniff protection, honeypot fields, HTML-entity escaping, and WCAG-compliant reduced-motion interfaces',
         'Authored 15+ Node.js migration and asset-optimisation scripts porting a legacy WordPress practice site into Next.js, and crawled two more legacy sites (GoDaddy, WordPress) with a headless browser into typed content modules that preserved every URL, canonical, and Open Graph tag',
