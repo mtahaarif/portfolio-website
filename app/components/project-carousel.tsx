@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, Globe } from 'lucide-react';
 import type { CmsProject } from '../data/cms';
 import { Github } from './brand-icons';
 import { prefersReducedMotion } from '../lib/motion';
@@ -252,7 +252,7 @@ function CarouselCard({
         <p className="text-white/65 text-sm leading-relaxed line-clamp-3">{project.description}</p>
 
         <div className="flex items-center gap-1.5 mt-4 text-white/30 group-hover:text-amber-300 transition-colors">
-          <Github size={13} />
+          {project.clientWork ? <Globe size={13} /> : <Github size={13} />}
           <ExternalLink size={11} />
         </div>
       </div>

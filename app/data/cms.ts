@@ -267,7 +267,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'Resolved every critical finding from a technical SEO audit that opened at 37/100: duplicate IDs, duplicate contact URLs and slow LCP. Lighthouse mobile went from 57 to 87-91 on Home and 67 to 97 on Services, with blocking time cut from 865 ms to 57 ms. SEO and best-practices scores are 100 on the measured pages, and every page is readable without JavaScript.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Motion', 'Lenis', 'Resend', 'JSON-LD'],
-    github: `${GH}/Open-Arms-Heart-Services`,
+    github: `https://openarmsandheart.org`,
     clientWork: true,
   },
     {
@@ -283,7 +283,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'Every route is static HTML, readable and usable with JavaScript off, and the only runtime dependencies are Next, React, Tailwind and lucide-react. Reduced-motion support applies at every layer, and unsupported browsers fall back to static layouts and a scroll-snap carousel. The legacy Wix URL is redirected with a 301.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Scroll-Driven CSS', 'View Transitions', 'Server Actions', 'JSON-LD'],
-    github: `${GH}/MourningDoveHomeCare`,
+    github: `https://mourningdovehomecare.com`,
     clientWork: true,
   },
   {
@@ -299,7 +299,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'A fully static site (36 build outputs) with URLs, titles, canonicals and Open Graph tags identical to the original, so existing search results keep working. Verified by a 19-test end-to-end suite, and by a console sweep of all 32 pages with and without reduced motion that found no errors or hydration warnings.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Motion', 'View Transitions', 'Cache Components'],
-    github: `${GH}/LoveThyNeighbourHC`,
+    github: `https://lovethyneighborhhc.com`,
     clientWork: true,
   },
   {
@@ -315,7 +315,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'All routes static, with no UI kit, animation library or CSS framework. Hydration is limited to six components, and the first paint is already laid out correctly. Includes a mobile slide-in menu using `inert` and scroll lock, and full no-JS and reduced-motion fallbacks.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'CSS Modules', 'Container Queries', 'IntersectionObserver', 'next/image'],
-    github: `${GH}/eworld-innovative`,
+    github: `https://eworld-innovative.vercel.app`,
     clientWork: true,
   },
   {
@@ -346,7 +346,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'A 34-page programmatic-SEO platform where adding a city or service is a data edit rather than a new page, with no database round-trips in the request path. Per-route metadata, canonical URLs, and Open Graph tags across 10 Northern California counties, plus an IntersectionObserver scroll-spy directory and requestAnimationFrame marquee. 27 commits.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind v4', 'Framer Motion', 'Programmatic SEO', 'Resend'],
-    github: `${GH}/Glorious-Home-Care-Assistance-`,
+    github: `https://glorious-home-care-assistance.vercel.app`,
     clientWork: true,
   },
   {
@@ -362,7 +362,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'A fully static, zero-round-trip site spanning eight service pages, a blog, careers, and service-area coverage, with automated JSON-LD schema, XML sitemap, PWA manifest, and a full security header set. Calendly, PayPal, and JotForm workflows wired in. 64 commits.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'JSON-LD', 'Resend', 'Google Sheets API'],
-    github: `${GH}/Benevolence-Home-Services`,
+    github: `https://benevolencehomeservices.com`,
     clientWork: true,
   },
   {
@@ -378,7 +378,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'A lightweight, SEO-ready platform meeting strict WCAG requirements with reduced-motion support throughout, backed by validated serverless contact and newsletter routes wiring Resend, FormSubmit, and WhatsApp lead capture in place of manual follow-up. 62 commits.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Framer Motion', '@react-three/fiber', 'Resend', 'WCAG'],
-    github: `${GH}/A-T-Nexus-`,
+    github: `https://atnexus.io`,
     clientWork: true,
   },
     {
@@ -394,7 +394,7 @@ const fullStackProjects: CmsProject[] = [
     result:
       'Content update turnaround cut 90% — 30+ minutes to under 2 — while holding sub-100kB initial loads through SSR. Public routes retry three times with exponential backoff (1s, 2s, capped at 5s); SMTP workflows fall back to a prefilled mailto payload when unconfigured. 140 commits, running in production for a paying practice.',
     tech: ['Next.js 14', 'TypeScript', 'Prisma', 'PostgreSQL', 'MySQL', 'JWT', 'Vercel Blob', 'ISR'],
-    github: `${GH}/hainescitydental`,
+    github: `https://hainescitydental.com`,
     clientWork: true,
   },
     {
