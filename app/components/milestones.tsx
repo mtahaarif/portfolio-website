@@ -6,7 +6,7 @@ import { SectionHeading } from './section-heading';
 
 const MILESTONES = [
   {
-    title: '8 Production Platforms',
+    title: '9 Production Platforms',
     desc: 'Architected and deployed end-to-end Next.js and React 19 applications for live US clients, from JWT-secured admin APIs and dual-database backends to full WordPress and GoDaddy migrations.',
   },
   {
@@ -14,11 +14,11 @@ const MILESTONES = [
     desc: 'Engineered anti-spoofing vision models across a stratified 17,834-image corpus, reaching 99.8% validation accuracy and profiled to 31 ms or lower batch execution step times.',
   },
   {
-    title: '32 Projects, Three Disciplines',
+    title: '33 Projects, Three Disciplines',
     desc: 'Machine learning and clinical AI, production full-stack platforms, and hardware down to a custom instruction set in Verilog — the full stack, literally.',
   },
   {
-    title: '40GB+ Clinical Data Processed',
+    title: 'Raw Clinical Data Processed',
     desc: 'Built out-of-core Polars pipelines streaming 37.1M chart rows into an OMOP/LOINC schema to forecast ICU transfer 6 hours ahead at 0.892 AUROC.',
   },
 ];

@@ -256,6 +256,22 @@ const machineLearningProjects: CmsProject[] = [
 const fullStackProjects: CmsProject[] = [
     {
     tag: 'Client Delivery',
+    title: 'Carenest Homecare: Marketing Site & Admin Portal',
+    image: '/carenest.png',
+    description:
+      'A Next.js 16 home-care site with 14 pages, scroll-driven motion, an interactive county map, and a Supabase-backed staff dashboard for inquiries and applications.',
+    problem:
+      'A Chicagoland in-home care agency needed a fast, search-visible site that also captured family inquiries and caregiver applications, and gave staff a way to track them without a separate CRM.',
+    approach:
+      'Every marketing route is a server page plus a client content component, with seven service pages generated statically from one data file. Hero banners animate with CSS only so the LCP image paints before hydration. Motion runs through LazyMotion, and Supabase loads only on the auth and admin pages and on contact-form submit. The contact form writes to Postgres, routes caregiver sign-ups and family inquiries to separate tables, and fires an optional Resend notification that never blocks the submission. A role-gated admin dashboard handles inline status changes and staff role grants. A d3-geo Illinois county map highlights the service area and syncs with the county cards.',
+    result:
+      'A statically generated site with LocalBusiness, Service, FAQPage and BreadcrumbList JSON-LD, a generated sitemap, robots.txt and llms.txt, a strict CSP, and reduced-motion support throughout. Staff manage client inquiries and job applications from one authenticated dashboard.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Supabase', 'd3-geo', 'Zod', 'Resend'],
+    github: `https://carenest-home-care.vercel.app/`,
+    clientWork: true,
+  },
+    {
+    tag: 'Client Delivery',
     title: 'Open Arms & Heart Services: Home-Care Agency Platform',
     image: '/open-arms-heart.png',
     description:
@@ -594,7 +610,7 @@ export const cmsDefaults: PortfolioCMSData = {
       sub: 'Remote',
       period: 'Aug 2025 – Present',
       bullets: [
-        'Sole engineer across eight production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
+        'Sole engineer across nine production Next.js platforms for US healthcare, home-care, IT-services, and B2B consulting clients — owning architecture, deployment, and post-launch maintenance across 290+ commits',
         'Engineered JWT-secured admin APIs over Prisma/PostgreSQL alongside pooled MySQL, with direct-to-Vercel-Blob upload brokering and automated cache revalidation, plus Resend, SMTP/Nodemailer, Google Sheets CRM, WhatsApp, and Calendly integrations',
         'Standardised hardened defaults across client sites — strict Content-Security-Policy, X-Frame-Options, MIME-sniff protection, honeypot fields, HTML-entity escaping, and WCAG-compliant reduced-motion interfaces',
         'Authored 15+ Node.js migration and asset-optimisation scripts porting a legacy WordPress practice site into Next.js, and crawled two more legacy sites (GoDaddy, WordPress) with a headless browser into typed content modules that preserved every URL, canonical, and Open Graph tag',
